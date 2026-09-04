@@ -1,0 +1,695 @@
+<title>IRW Candidates for the Spacing Law</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Spectral:ital,wght@0,500;0,600;1,600&display=swap">
+
+<style>
+:root {
+  --paper:   #E9ECEE;
+  --surface: #F8FAFA;
+  --sunken:  #DFE4E7;
+  --ink:     #131A1E;
+  --muted:   #58666E;
+  --faint:   #7C8A91;
+  --line:    #CBD4D9;
+  --hair:    #B9C4CA;
+  --accent:  #12525F;
+  --accent-soft: #DCEAED;
+  --signal:  #A8621A;
+  --signal-soft: #F0E2D2;
+  --dead:    #8A7F86;
+
+  --f-display: "Spectral", "Iowan Old Style", Georgia, serif;
+  --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --col: 68ch;
+  --wide: 1080px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:   #101619;
+    --surface: #171F23;
+    --sunken:  #0B1113;
+    --ink:     #DEE6E9;
+    --muted:   #9AA9B0;
+    --faint:   #74838A;
+    --line:    #2A353A;
+    --hair:    #3A474D;
+    --accent:  #5FB3C4;
+    --accent-soft: #16323A;
+    --signal:  #D9924A;
+    --signal-soft: #2E2318;
+    --dead:    #7E7379;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:   #101619;
+  --surface: #171F23;
+  --sunken:  #0B1113;
+  --ink:     #DEE6E9;
+  --muted:   #9AA9B0;
+  --faint:   #74838A;
+  --line:    #2A353A;
+  --hair:    #3A474D;
+  --accent:  #5FB3C4;
+  --accent-soft: #16323A;
+  --signal:  #D9924A;
+  --signal-soft: #2E2318;
+  --dead:    #7E7379;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 17px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding: 0 28px 96px;
+}
+
+/* ---------- masthead ---------- */
+
+.masthead {
+  padding: 72px 0 40px;
+  border-bottom: 1px solid var(--hair);
+  display: grid;
+  gap: 22px;
+}
+.kicker {
+  font-family: var(--f-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  align-items: baseline;
+}
+.kicker .sep { color: var(--hair); }
+h1 {
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: clamp(2.1rem, 5.2vw, 3.4rem);
+  line-height: 1.06;
+  letter-spacing: -0.017em;
+  margin: 0;
+  max-width: 20ch;
+  text-wrap: balance;
+}
+.standfirst {
+  max-width: var(--col);
+  font-size: 1.09rem;
+  color: var(--muted);
+  margin: 0;
+}
+.standfirst a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+.runline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 26px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  color: var(--faint);
+  padding-top: 4px;
+}
+.runline b { color: var(--ink); font-weight: 500; }
+
+/* ---------- sections ---------- */
+
+section { padding-top: 60px; }
+
+.sechead {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 26px;
+  max-width: var(--col);
+}
+.eyebrow {
+  font-family: var(--f-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+h2 {
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: clamp(1.45rem, 3vw, 1.95rem);
+  line-height: 1.16;
+  letter-spacing: -0.012em;
+  margin: 0;
+  text-wrap: balance;
+}
+h3 {
+  font-family: var(--f-body);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.005em;
+  margin: 0;
+}
+
+p { max-width: var(--col); margin: 0 0 1.05em; }
+p:last-child { margin-bottom: 0; }
+.prose > * + * { margin-top: 1.05em; }
+.prose { max-width: var(--col); }
+
+code, .m { font-family: var(--f-mono); font-size: 0.875em; }
+code {
+  background: var(--sunken);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 0.08em 0.34em;
+  color: var(--ink);
+}
+strong { font-weight: 600; }
+em { font-style: italic; }
+
+/* ---------- the three ingredients ---------- */
+
+.reqs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1px;
+  background: var(--hair);
+  border: 1px solid var(--hair);
+  margin-bottom: 30px;
+}
+.req {
+  background: var(--surface);
+  padding: 20px 22px 22px;
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+.req .tag {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+.req .what { font-family: var(--f-display); font-size: 1.22rem; font-weight: 600; line-height: 1.2; }
+.req p { font-size: 0.925rem; color: var(--muted); margin: 0; }
+.req.binding { background: var(--signal-soft); }
+.req.binding .tag { color: var(--signal); }
+
+/* ---------- ladder figure ---------- */
+
+figure {
+  margin: 34px 0 0;
+  background: var(--surface);
+  border: 1px solid var(--hair);
+  padding: 26px 26px 20px;
+}
+figure svg { display: block; width: 100%; height: auto; }
+figcaption {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  max-width: 76ch;
+}
+
+/* ---------- ladder svg ---------- */
+.ladder text { font-family: var(--f-mono); }
+.ladder .lbl { font-size: 11.5px; letter-spacing: 0.12em; }
+.ladder .num { font-size: 12px; text-anchor: middle; }
+.ladder .ratio { font-size: 10.5px; text-anchor: middle; opacity: 0.85; }
+.ladder .f-faint { fill: var(--faint); }
+.ladder .f-muted { fill: var(--muted); }
+.ladder .f-signal { fill: var(--signal); }
+.ladder .s-hair { stroke: var(--hair); stroke-width: 1; fill: none; }
+.ladder .s-faint { stroke: var(--faint); stroke-width: 1; fill: none; }
+.ladder .s-signal { stroke: var(--signal); stroke-width: 1; fill: none; }
+.ladder .brace { opacity: 0.55; }
+
+/* ---------- candidate cards ---------- */
+
+.cards { display: grid; gap: 18px; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--hair);
+  border-left: 3px solid var(--accent);
+  padding: 22px 24px 24px;
+  display: grid;
+  gap: 14px;
+}
+.card.flag { border-left-color: var(--signal); }
+
+.card-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.tname {
+  font-family: var(--f-mono);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--ink);
+  word-break: break-word;
+}
+.badge {
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border: 1px solid var(--hair);
+  color: var(--muted);
+  white-space: nowrap;
+}
+.badge.hot { background: var(--signal-soft); border-color: var(--signal); color: var(--signal); }
+.badge.free { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+
+.specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.spec {
+  padding: 10px 20px 10px 0;
+  margin-right: 20px;
+  border-right: 1px solid var(--line);
+  display: grid;
+  gap: 1px;
+}
+.spec:last-child { border-right: 0; margin-right: 0; padding-right: 0; }
+.spec .k {
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+.spec .v {
+  font-family: var(--f-mono);
+  font-size: 0.94rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+.card p { font-size: 0.955rem; max-width: 74ch; }
+.phi {
+  font-size: 0.955rem;
+  color: var(--muted);
+  max-width: 74ch;
+}
+.phi b {
+  font-family: var(--f-mono);
+  font-size: 0.86em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 500;
+  margin-right: 8px;
+}
+
+/* ---------- tables ---------- */
+
+.scroller { overflow-x: auto; border: 1px solid var(--hair); background: var(--surface); }
+table { border-collapse: collapse; width: 100%; min-width: 620px; font-size: 0.925rem; }
+th, td { text-align: left; padding: 11px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+thead th {
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faint);
+  font-weight: 400;
+  background: var(--sunken);
+  border-bottom: 1px solid var(--hair);
+  white-space: nowrap;
+}
+tbody tr:last-child td { border-bottom: 0; }
+td.name { font-family: var(--f-mono); font-size: 0.86rem; white-space: nowrap; }
+td.num { font-family: var(--f-mono); font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--muted); }
+
+/* ---------- payoff list ---------- */
+
+.payoffs { display: grid; gap: 0; border-top: 1px solid var(--hair); }
+.payoff {
+  display: grid;
+  grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+  gap: 6px 34px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: start;
+}
+.payoff h3 { color: var(--accent); }
+.payoff p { font-size: 0.955rem; color: var(--muted); margin: 0; max-width: 66ch; }
+@media (max-width: 720px) { .payoff { grid-template-columns: 1fr; } }
+
+/* ---------- dead ends ---------- */
+
+.dead-list { display: grid; gap: 0; border-top: 1px solid var(--line); max-width: 900px; }
+.dead-row {
+  display: grid;
+  grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
+  gap: 4px 28px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+}
+.dead-row .n { font-family: var(--f-mono); font-size: 0.86rem; color: var(--dead); word-break: break-word; }
+.dead-row .why { font-size: 0.93rem; color: var(--muted); }
+@media (max-width: 720px) { .dead-row { grid-template-columns: 1fr; } }
+
+/* ---------- next ---------- */
+
+.next {
+  margin-top: 34px;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent);
+  padding: 26px 28px 28px;
+  display: grid;
+  gap: 12px;
+}
+.next .eyebrow { color: var(--accent); }
+.next h2 { font-size: 1.5rem; }
+.next p { color: var(--ink); max-width: 70ch; }
+
+footer {
+  margin-top: 70px;
+  padding-top: 22px;
+  border-top: 1px solid var(--hair);
+  font-family: var(--f-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  color: var(--faint);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 22px;
+}
+
+a { color: var(--accent); }
+a:focus-visible, :focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
+</style>
+
+<div class="wrap">
+
+<header class="masthead">
+  <div class="kicker">
+    <span>Scouting report</span><span class="sep">/</span>
+    <span>Item Response Warehouse</span><span class="sep">/</span>
+    <span>27 Aug 2026</span>
+  </div>
+  <h1>IRW Candidates for the Spacing Law</h1>
+  <p class="standfirst">Which datasets in the Item Response Warehouse can carry the geometric-category-width battery from <a href="https://vladchituc.com/s/stretched-exponential.html">Chituc&rsquo;s stretched-exponential page</a> &mdash; and, more to the point, which ones test something the three existing domains structurally cannot.</p>
+  <div class="runline">
+    <span>Swept <b>3,648</b> tables</span>
+    <span>Live-probed <b>34</b></span>
+    <span>Tier&nbsp;1 <b>5</b></span>
+    <span>Tier&nbsp;2 <b>8</b></span>
+    <span>Ruled out <b>7</b></span>
+  </div>
+</header>
+
+<section>
+  <div class="sechead">
+    <div class="eyebrow">The filter</div>
+    <h2>Three ingredients, all at once</h2>
+  </div>
+
+  <div class="reqs">
+    <div class="req">
+      <div class="tag">Ingredient</div>
+      <div class="what">An ordinal rating</div>
+      <p>A reported score <span class="m">S</span> with K&nbsp;&ge;&nbsp;5 categories. IRW has these in abundance &mdash; 1,343 tables at K&nbsp;=&nbsp;5, 512 at K&nbsp;=&nbsp;7, and a tail running out to K&nbsp;=&nbsp;1,152.</p>
+    </div>
+    <div class="req binding">
+      <div class="tag">Binding constraint</div>
+      <div class="what">An objective &Phi;</div>
+      <p>A ratio-scaled magnitude attached to <em>the thing being rated</em>. This is what almost no IRW table has, and it is what decides the whole shortlist.</p>
+    </div>
+    <div class="req">
+      <div class="tag">Ingredient</div>
+      <div class="what">Enough objects</div>
+      <p>Enough distinct rated objects to estimate GRM thresholds anchored on log&nbsp;&Phi;, and enough raters per object to fit <span class="m">r</span> individually.</p>
+    </div>
+  </div>
+
+  <div class="prose">
+    <p>In a normal IRW table <code>item</code> is a questionnaire item and <code>id</code> is a person &mdash; neither carries an objective magnitude, so ingredient&nbsp;2 fails and the table is out. The tables that survive are the ones where <strong><code>id</code> is a stimulus and there is a <code>rater</code> column</strong>. There are <strong>29</strong> of those in the warehouse. A second, partly overlapping pool is the <strong>41</strong> tables carrying <code>itemcov_*</code> fields, a handful of which already hold a usable &Phi; in the table itself.</p>
+    <p>That is the whole search space. Everything below comes out of it.</p>
+  </div>
+
+  <figure>
+    <svg class="ladder" viewBox="0 0 900 232" role="img" aria-labelledby="ladder-title">
+      <title id="ladder-title">Equidistant versus geometric category boundaries in log-stimulus space</title>
+      <defs>
+        <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0 0 L10 5 L0 10 z" class="f-faint"></path>
+        </marker>
+      </defs>
+
+      <g class="lbl f-faint">
+        <text x="0" y="14">FECHNERIAN &#8212; r = 1</text>
+        <text x="0" y="128">GEOMETRIC &#8212; r &gt; 1</text>
+      </g>
+
+      <g>
+        <line x1="0" y1="60" x2="880" y2="60" class="s-hair"></line>
+        <g class="s-hair">
+          <line x1="0" y1="46" x2="0" y2="74"></line>
+          <line x1="146" y1="46" x2="146" y2="74"></line>
+          <line x1="292" y1="46" x2="292" y2="74"></line>
+          <line x1="438" y1="46" x2="438" y2="74"></line>
+          <line x1="584" y1="46" x2="584" y2="74"></line>
+          <line x1="730" y1="46" x2="730" y2="74"></line>
+          <line x1="876" y1="46" x2="876" y2="74"></line>
+        </g>
+        <g class="num f-muted">
+          <text x="73" y="42">5</text><text x="219" y="42">6</text><text x="365" y="42">7</text>
+          <text x="511" y="42">8</text><text x="657" y="42">9</text><text x="803" y="42">10</text>
+        </g>
+      </g>
+
+      <g>
+        <line x1="0" y1="174" x2="880" y2="174" class="s-signal"></line>
+        <g class="s-signal">
+          <line x1="0" y1="160" x2="0" y2="188"></line>
+          <line x1="86" y1="160" x2="86" y2="188"></line>
+          <line x1="194" y1="160" x2="194" y2="188"></line>
+          <line x1="328" y1="160" x2="328" y2="188"></line>
+          <line x1="496" y1="160" x2="496" y2="188"></line>
+          <line x1="706" y1="160" x2="706" y2="188"></line>
+          <line x1="876" y1="160" x2="876" y2="188"></line>
+        </g>
+        <g class="num f-signal">
+          <text x="43" y="156">5</text><text x="140" y="156">6</text><text x="261" y="156">7</text>
+          <text x="412" y="156">8</text><text x="601" y="156">9</text><text x="791" y="156">10</text>
+        </g>
+        <g class="s-signal brace">
+          <path d="M0 200 L0 206 L86 206 L86 200"></path>
+          <path d="M86 200 L86 206 L194 206 L194 200"></path>
+          <path d="M194 200 L194 206 L328 206 L328 200"></path>
+          <path d="M328 200 L328 206 L496 206 L496 200"></path>
+          <path d="M496 200 L496 206 L706 206 L706 200"></path>
+          <path d="M706 200 L706 206 L876 206 L876 200"></path>
+        </g>
+        <g class="ratio f-signal">
+          <text x="140" y="222">&#215;r</text><text x="261" y="222">&#215;r</text>
+          <text x="412" y="222">&#215;r</text><text x="601" y="222">&#215;r</text><text x="791" y="222">&#215;r</text>
+        </g>
+      </g>
+
+      <g>
+        <line x1="0" y1="96" x2="120" y2="96" class="s-faint" marker-end="url(#ar)"></line>
+        <text x="130" y="100" class="lbl f-faint">log &#934;</text>
+      </g>
+    </svg>
+    <figcaption>The observable signature under test. Both rows show the same 1&ndash;10 rating scale laid out against log stimulus. The Fechnerian reading spaces category boundaries evenly; the stretched-exponential reading widens each one by a constant factor <span class="m">r</span> = e<sup>&beta;</sup>. Every dataset below is a candidate for asking which row it looks like.</figcaption>
+  </figure>
+</section>
+
+<section>
+  <div class="sechead">
+    <div class="eyebrow">Tier 1 &mdash; run these</div>
+    <h2>Five datasets that are ready now</h2>
+  </div>
+
+  <div class="cards">
+
+    <div class="card flag">
+      <div class="card-top">
+        <div class="tname">spelling2pronounce_edwards2023</div>
+        <div class="badge hot">Start here</div>
+      </div>
+      <div class="specs">
+        <div class="spec"><span class="k">Objects</span><span class="v">23,282 words</span></div>
+        <div class="spec"><span class="k">Raters</span><span class="v">2,515</span></div>
+        <div class="spec"><span class="k">Scale</span><span class="v">1&ndash;6</span></div>
+        <div class="spec"><span class="k">Ratings</span><span class="v">629,815</span></div>
+      </div>
+      <p><code>id</code> is literally the word string &mdash; <span class="m">move</span>, <span class="m">method</span>, <span class="m">assumed</span>, <span class="m">activities</span> &mdash; rated on a single <code>difficulty</code> item. The join to a frequency norm is a string match with no ambiguity.</p>
+      <p class="phi"><b>&Phi;</b>SUBTLEX-UK / SUBTLEX-US Zipf frequency.</p>
+      <p>This is the one that pays for the trip. The page&rsquo;s own standing caveat is that the word-familiarity battery runs on <em>item means over raters</em>; this is the same class of test at the <strong>individual response level</strong>, on four times the item count of the Glasgow Norms, with 2,515 raters available for the per-observer stability check that the stellar section runs on fourteen. And because the construct is spelling difficulty rather than familiarity, it is an independent test rather than a re-run.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="tname">famous_melodies</div>
+        <div class="badge">External join</div>
+      </div>
+      <div class="specs">
+        <div class="spec"><span class="k">Objects</span><span class="v">109 melodies</span></div>
+        <div class="spec"><span class="k">Raters</span><span class="v">397</span></div>
+        <div class="spec"><span class="k">Scale</span><span class="v">0&ndash;8 (K=9)</span></div>
+        <div class="spec"><span class="k">Dimensions</span><span class="v">5</span></div>
+      </div>
+      <p>Each melody carries <code>familiarity</code>, <code>age_of_acquisition</code>, <code>valence</code>, <code>arousal</code> and <code>naming</code> ratings, plus <code>rt</code>. Same cell as word familiarity &mdash; an experiential categorization of an objective exposure count &mdash; in a different modality.</p>
+      <p class="phi"><b>&Phi;</b>Objective exposure: chart history, streaming or broadcast counts.</p>
+      <p>Two structural bonuses. K&nbsp;=&nbsp;9 rather than IGN&rsquo;s 6, which bears directly on &beta;&nbsp;=&nbsp;1/(k&gamma;); and five rating dimensions on <em>identical</em> stimuli, which separates &ldquo;<span class="m">r</span> is a property of report scales&rdquo; from &ldquo;<span class="m">r</span> tracks the construct.&rdquo;</p>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="tname">Forthmann-2024-creative_quality</div>
+        <div class="badge free">&Phi; in table</div>
+      </div>
+      <div class="specs">
+        <div class="spec"><span class="k">Objects</span><span class="v">3,719 ideas</span></div>
+        <div class="spec"><span class="k">Raters</span><span class="v">3</span></div>
+        <div class="spec"><span class="k">Scale</span><span class="v">1&ndash;5</span></div>
+        <div class="spec"><span class="k">Ratings</span><span class="v">14,289</span></div>
+      </div>
+      <p>Creative uses generated in an alternate-uses task, each rated for quality &mdash; and the table already carries <code>itemcov_frequency</code>, how often each idea was produced across the sample.</p>
+      <p class="phi"><b>&Phi;</b><code>itemcov_frequency</code>, an objective count, already in the table.</p>
+      <p>No external join, no corpus, no matching step. An objective-count &Phi; sitting next to an ordinal rating is exactly the structure the battery wants, and this is the cheapest instance of it in the warehouse.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="tname">Ellipse_Corssley_2024</div>
+        <div class="badge">External join</div>
+      </div>
+      <div class="specs">
+        <div class="spec"><span class="k">Objects</span><span class="v">8,890 essays</span></div>
+        <div class="spec"><span class="k">Raters</span><span class="v">27</span></div>
+        <div class="spec"><span class="k">Scale</span><span class="v">0&ndash;5</span></div>
+        <div class="spec"><span class="k">Dimensions</span><span class="v">8 rubric</span></div>
+      </div>
+      <p>L2 writing scored on <code>Overall</code>, <code>Syntax</code>, <code>Grammar</code>, <code>Cohesion</code>, <code>Conventions</code>, <code>Phraseology</code>, <code>Vocabulary</code> and <code>Identifying_Info</code>. The <code>id</code> values are filenames from the public ELLIPSE corpus, so the texts are recoverable.</p>
+      <p class="phi"><b>&Phi;</b>Essay length in words or characters, computed from the corpus.</p>
+      <p>Length is the strongest objective correlate of holistic essay scores and spans orders of magnitude &mdash; a genuine ratio-scaled stimulus. Eight rubric dimensions on the same 8,890 objects gives the scale-versus-construct contrast a second time, on a very different judgment.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="tname">det_naismith_2023</div>
+        <div class="badge free">&Phi; in table</div>
+      </div>
+      <div class="specs">
+        <div class="spec"><span class="k">Objects</span><span class="v">573 essays</span></div>
+        <div class="spec"><span class="k">Raters</span><span class="v">2 human + 1 machine</span></div>
+        <div class="spec"><span class="k">Prompts</span><span class="v">3</span></div>
+        <div class="spec"><span class="k">Ratings</span><span class="v">3,438</span></div>
+      </div>
+      <p>Duolingo English Test writing samples carrying <code>itemcov_length_characters</code> in the table, alongside <code>cov_ielts_writing</code> as an external criterion.</p>
+      <p class="phi"><b>&Phi;</b><code>itemcov_length_characters</code>, already in the table.</p>
+      <p>Small, but free to run, and it has something none of the others do: one of the three raters is <code>machine_grade</code>. If the geometric widening is a fact about how a report scale is used, an automated scorer trained on human scores should inherit it &mdash; a falsifiable side prediction with the data already assembled.</p>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="sechead">
+    <div class="eyebrow">Tier 2 &mdash; viable, with caveats</div>
+    <h2>Needs a join, or is thin on objects</h2>
+  </div>
+  <div class="scroller">
+    <table>
+      <thead>
+        <tr><th>Table</th><th>Structure</th><th>Candidate &Phi;</th><th>Catch</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="name">emoji_scheffler_2024</td><td class="num">107 &times; 153 raters, 0&ndash;100</td><td>Emoji corpus usage frequency</td><td>Few objects; slider scale</td></tr>
+        <tr><td class="name">fractals_rating</td><td class="num">400 &times; 400 raters, 1&ndash;7</td><td>Fractal dimension / compression complexity</td><td>Stimulus images must be sourced</td></tr>
+        <tr><td class="name">dumas_Organisciak_2022</td><td class="num">2,196 responses &times; 4 raters, 1&ndash;5</td><td>Semantic distance from embeddings</td><td>&Phi; is model-derived, not observed</td></tr>
+        <tr><td class="name">mpsycho_lakes</td><td class="num">194 &times; 5 raters, 1&ndash;7</td><td>Lake physical attributes</td><td>Only 5 raters</td></tr>
+        <tr><td class="name">double_marking_steele_2022</td><td class="num">288 &times; 36 markers, 0&ndash;100</td><td>Length, if recoverable</td><td>Texts likely unavailable</td></tr>
+        <tr><td class="name">tears</td><td class="num">72 &times; 91 raters, 0&ndash;100</td><td>Requires stimulus-side measurement</td><td>No ready &Phi;</td></tr>
+        <tr><td class="name">wine_luckett2021</td><td class="num">17 wines &times; 56 raters, 0&ndash;100</td><td>Price, ethanol, volatile concentration</td><td>17 objects is too few</td></tr>
+        <tr><td class="name">previc_bohn2023</td><td class="num">379 German words, <code>itemcov_aoa</code></td><td>&mdash;</td><td>Binary responses; use as a &Phi; source only</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="sechead">
+    <div class="eyebrow">The actual argument</div>
+    <h2>What the IRW adds that a fourth dataset wouldn&rsquo;t</h2>
+  </div>
+  <p class="prose" style="margin-bottom:26px;">Four of these are things the existing three domains cannot deliver for structural reasons, not for want of effort.</p>
+
+  <div class="payoffs">
+    <div class="payoff">
+      <h3>Individual-level ratings, at scale</h3>
+      <p>Retires the page&rsquo;s own aggregate-level caveat on the word-frequency domain. <code>spelling2pronounce</code> alone yields 2,515 per-rater estimates of <span class="m">r</span>, against fourteen historical observers on the stellar side and item means on the Glasgow side.</p>
+    </div>
+    <div class="payoff">
+      <h3>A sweep across K</h3>
+      <p>&beta;&nbsp;=&nbsp;1/(k&gamma;) predicts <span class="m">r</span> should fall toward 1 as the scale gets finer. Frequency-anchored tables sit at K&nbsp;=&nbsp;6 (<code>spelling2pronounce</code>), K&nbsp;=&nbsp;9 (<code>famous_melodies</code>) and K&nbsp;=&nbsp;101 (<code>emoji_scheffler</code>) with stimulus type roughly held fixed. That is a sharp quantitative prediction no single dataset can reach.</p>
+    </div>
+    <div class="payoff">
+      <h3>Same stimuli, many dimensions</h3>
+      <p><code>fractals_rating</code> carries 7 rating dimensions, <code>Ellipse</code> 8, <code>famous_melodies</code> and <code>emoji_scheffler</code> 5 each &mdash; all on identical objects. If <span class="m">r</span> is a fact about report scales it should hold across dimensions; if it tracks the construct it should not. Directly separable here.</p>
+    </div>
+    <div class="payoff">
+      <h3>Range and frequency controls, across corpora</h3>
+      <p>Different tables present raters with very different stimulus distributions. Under the range reading <span class="m">r</span> should follow the presented range and ignore the frequency profile &mdash; a between-dataset version of the Parducci control that a single corpus can only approximate.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sechead">
+    <div class="eyebrow">Checked and ruled out</div>
+    <h2>Dead ends, so nobody re-walks them</h2>
+  </div>
+  <div class="dead-list">
+    <div class="dead-row"><div class="n">concretewords</div><div class="why">The <code>item</code> column holds Qualtrics response hashes, not the words. Unusable as it stands.</div></div>
+    <div class="dead-row"><div class="n">klatt_2016_speed_estimation</div><div class="why">Only two objective speeds in the design, 50 and 55&nbsp;km/h. No stimulus range to fit thresholds against.</div></div>
+    <div class="dead-row"><div class="n">mentalrotation_wolf_2024</div><div class="why">Has <code>itemcov_angle</code>, but four levels only and binary responses.</div></div>
+    <div class="dead-row"><div class="n">roar_lexical &middot; spalex_aguasvivas_2020</div><div class="why">Words with objective frequency, but the response is binary accuracy rather than a rating. Wrong shape.</div></div>
+    <div class="dead-row"><div class="n">amatus_cipora_2024_arithmetic &middot; himmelstein-*</div><div class="why">Same problem: objective item properties, dichotomous responses.</div></div>
+    <div class="dead-row"><div class="n">allen_2025_delaydiscount</div><div class="why">Item text carries objective amounts and delays, but the response is a binary choice.</div></div>
+    <div class="dead-row"><div class="n">de_vries_2022_hexaco_other &middot; socialstereotype_hughes_2025_* &middot; hpwt_bayona_2025_jobperformance</div><div class="why">Most of the 29 rater-structured tables are people rating <em>people</em>. No objective &Phi; is available for the rated object.</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="next">
+    <div class="eyebrow">Recommended first move</div>
+    <h2>Run the battery on spelling2pronounce &times; SUBTLEX</h2>
+    <p>It is the cleanest join in the warehouse, it is individual-level, and it patches the one caveat the page flags against its own word-frequency domain. <code>Forthmann-2024-creative_quality</code> and <code>det_naismith_2023</code> follow as near-free second and third runs, since &Phi; is already sitting in those tables.</p>
+    <p>The obvious next step before committing: pull <code>spelling2pronounce</code> and check what fraction of the 23,282 word strings match a SUBTLEX entry.</p>
+  </div>
+</section>
+
+<footer>
+  <span>Item Response Warehouse &middot; itemresponsewarehouse.org</span>
+  <span>Metadata sweep: 3,648 tables</span>
+  <span>Probes run live via the <span class="m">irw</span> R package, v1.0.1</span>
+</footer>
+
+</div>

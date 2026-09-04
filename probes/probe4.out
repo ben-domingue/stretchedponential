@@ -1,0 +1,112 @@
+
+===== rating_speed_2025 
+  cols: id, item, resp, rater | nrow: 2286137 
+   id ( 24037 ): voormiddag ; slagschip ; lunchen ; relaxt ; showroom ; graad ; kamperen ; vakwerk 
+   item ( 8 ): met.angst ; met.bedroefdheid ; met.blijheid ; met.kwaadheid ; met.verrassing ; met.walging ; valence ; arousal 
+   rater ( 378 ): Lijst 10_PP1 ; Lijst 10_PP1 - 2 ; Lijst 10_PP1 - 3 ; Lijst 10_PP2 ; Lijst 10_PP3 ; Lijst 10_PP3 - 2 ; Lijst 10_PP4 ; Lijst 10_PP4 - 2 
+   resp range: 1-5  uniq: 10 
+
+===== famous_melodies 
+  cols: id, rater, item, resp, rt | nrow: 42876 
+   id ( 109 ): Jeopardy_Theme ; Old_macdonald ; Zip_a_dee_doo_dah ; Pomp_and_circumstance ; London_Bridge ; Chicken_Dance ; Camp_Town_Races ; foil 
+   item ( 5 ): valence ; familiarity ; arousal ; naming ; age_of_acquisition 
+   rater ( 397 ): 2516:sona ; 2813:sona ; 3141:sona ; 3366:sona ; 3367:sona ; 3369:sona ; 3370:sona ; 3372:sona 
+   resp range: 0-8  uniq: 9 
+
+===== wine_luckett2021 
+  cols: rater, id, item, resp | nrow: 1998 
+   id ( 17 ): B1 wine- pleasantness ; B2 wine- pleasantness ; B3 wine- Pleasantness ; B3 wine- pleasantness ; B4 wine- pleasantness ; B5 wine- Pleasantness ; B5 wine- pleasantness ; Base Wine- Pleasantness 
+   item ( 3 ): familiar ; intense ; pleasant 
+   rater ( 56 ): 7 ; 53 ; 16 ; 9 ; 2 ; 60 ; 52 ; 64 
+   resp range: 0-100  uniq: 100 
+
+===== spelling2pronounce_edwards2023 
+  cols: id, item, resp, rater | nrow: 629815 
+   id ( 23282 ): move ; method ; assumed ; activities ; three ; younger ; evolution ; memories 
+   item ( 1 ): difficulty 
+   rater ( 2515 ): 1 ; 2 ; 4 ; 5 ; 6 ; 7 ; 8 ; 9 
+   resp range: 1-6  uniq: 7 
+
+===== Ellipse_Corssley_2024 
+  cols: id, rater, item, resp | nrow: 142240 
+   id ( 8890 ): 2021004425.txt ; AAAUUP138190003903252106_OR.txt ; 2141004275.txt ; AAAUUP138180000086342140_OR.txt ; AAAXMP138200002174202144_OR.txt ; AAAUUP138180000005412140_OR.txt ; 2021001060.txt ; 2141001021.txt 
+   item ( 8 ): Syntax ; Grammar ; Overall ; Cohesion ; Conventions ; Phraseology ; Identifying_Info ; Vocabulary 
+   rater ( 27 ): rater_1 ; rater_10 ; rater_11 ; rater_12 ; rater_13 ; rater_14 ; rater_15 ; rater_16 
+   resp range: 0-5  uniq: 6 
+
+===== dumas_Organisciak_2022 
+  cols: id, item, verbatim, rater, resp | nrow: 21960 
+   id ( 92 ): 1 ; 2 ; 3 ; 4 ; 5 ; 6 ; 7 ; 8 
+   item ( 10 ): brick ; table ; book ; rope ; bottle ; shovel ; fork ; shoe 
+   rater ( 4 ): rater2 ; rater3 ; rater1 ; rater4 
+   resp range: 1-5  uniq: 6 
+
+===== Forthmann-2024-creative_quality 
+  cols: id, item, resp, rater, cov_object, itemcov_frequency, itemcov_idea_type, cov_age, cov_sex, cov_aggression, cov_submission_r, cov_conventionalism, cov_rwa, cov_ts, cov_flu_letterf, cov_flu_letters, cov_flu_super, cov_flu_animals, cov_vf_flu | nrow: 14289 
+   id ( 202 ): 1298LAOK168 ; 1300KAUS195 ; 1303IEDE175 ; 1307urok178 ; 1320THMA152 ; 1339NESE172 ; 1345kemä172 ; 1352NAMA180 
+   item ( 3719 ): Sackhüpfen ; Kleider schneidern ; Luftkissen ; Schlitten fahren ; Verkleidung zu bestimmten Anlässen, z.b. Parties oder Halloween ; Mordwaffe ;  Tragbare Sauna , wenn der ganze Körper eingewickelt wird ; als Einkaufstüte verwenden 
+   rater ( 3 ): rater7 ; rater6 ; rater4 
+   resp range: 1-5  uniq: 5 
+
+===== mpsycho_lakes 
+  cols: resp, subtest, item, rater, id | nrow: 15520 
+   id ( 194 ): 43 ; 2 ; 8 ; 5 ; 14 ; 6 ; 194 ; 142 
+   item ( 16 ): aff1 ; aff2 ; aff3 ; aff4 ; aff5 ; aff6 ; aff7 ; cog1 
+   rater ( 5 ): 1 ; 3 ; 7 ; 8 ; 5 
+   resp range: 1-7  uniq: 8 
+
+===== tears 
+  cols: id, rater, stimulus, phase, item, resp | nrow: 24019 
+   id ( 72 ): 1 ; 10 ; 11 ; 12 ; 13 ; 14 ; 15 ; 16 
+   item ( 11 ): Anger ; Arousal ; Disgust ; Fear ; Genuine ; Happiness ; Neutral ; Sadness 
+   rater ( 91 ): 215 ; 197 ; 163 ; 112 ; 153 ; 205 ; 206 ; 259 
+   resp range: 0-100  uniq: 101 
+
+===== emoji_scheffler_2024 
+  cols: id, rt, item, rater, resp | nrow: 16370 
+   id ( 107 ): angry-face-with-horns_1f47f ; angry-face_1f620 ; anguished-face_1f627 ; anxious-face-with-sweat_1f630 ; astonished-face_1f632 ; beaming-face-with-smiling-eyes_1f601 ; clown-face_1f921 ; cold-face_1f976 
+   item ( 5 ): ambiguity ; arousal ; complexity ; familiarity ; valence 
+   rater ( 153 ): 50 ; 1 ; 28 ; 594 ; 579 ; 599 ; 583 ; 13 
+   resp range: 0-100  uniq: 101 
+
+===== det_naismith_2023 
+  cols: id, item, cov_gender, cov_test_taker_intent, cov_first_language, cov_ielts_writing, itemcov_condition, itemcov_length_characters, rater, resp | nrow: 3438 
+   id ( 573 ): user_199 ; user_272 ; user_431 ; user_7 ; user_24 ; user_112 ; user_124 ; user_144 
+   item ( 3 ): prompt_3 ; prompt_1 ; prompt_2 
+   rater ( 3 ): rater2 ; rater1 ; machine_grade 
+   resp range: -3.37801248251486-6  uniq: 1152 
+
+===== double_marking_steele_2022 
+  cols: id, item, resp, wave, rater | nrow: 3339 
+   id ( 288 ): 2 ; 35 ; 163 ; 166 ; 189 ; 1 ; 9 ; 45 
+   item ( 6 ): method ; abstract ; introduction ; discussion ; results ; presentation 
+   rater ( 36 ): 6 ; 8 ; 26 ; 1 ; 2 ; 3 ; 4 ; 5 
+   resp range: 0-100  uniq: 18 
+
+===== thomeczek2025_les 
+  cols: id, item, resp, rater, date | nrow: 3661 
+   id ( 16 ): afd_1nat ; linke_hh ; greens_1nat ; greens_hh ; cdu_1nat ; linke_1nat ; bsw_hh ; fdp_1nat 
+   item ( 20 ): assimilation ; galtan ; asylum ; genderlanguage ; climatepolicy ; antielitism ; liberalism ; publicdebt 
+   rater ( 16 ): 206 ; 209 ; 211 ; 215 ; 216 ; 217 ; 227 ; 230 
+   resp range: 1-20  uniq: 20 
+
+===== moralvignettes_rakhmankulova_2025 
+  cols: date, rater, id, item, resp, sample | nrow: 254904 
+   id ( 39 ): 30 ; 37 ; 18 ; 9 ; 25 ; 2 ; 22 ; 20 
+   item ( 16 ): ActDif ; EmAv ; EmInt ; Freq ; GenFam ; Harm ; Legal ; MorAppro 
+   rater ( 261 ): 1 ; 2 ; 3 ; 4 ; 5 ; 6 ; 7 ; 8 
+   resp range: 1-7  uniq: 7 
+
+===== kalimahnorms_alzahrani_2025 
+  cols: id, rt, item, resp, cov_frequency, cov_num_letters, cov_pos, cov_arabic_word, rater | nrow: 159058 
+   id ( 2476 ): 41 ; 42 ; 43 ; 44 ; 46 ; 47 ; 48 ; 49 
+   item ( 4 ): arou ; val ; aoa ; cnc 
+   rater ( 628 ): 9 ; 10 ; 8 ; 1 ; 4 ; 5 ; 13 ; 15 
+   resp range: 0-7  uniq: 8 
+
+===== socialstereotype_hughes_2025_judgement 
+  cols: id, rater, cov_group, cov_age, cov_sex, cov_sex_open, cov_ethnicity, cov_income, cov_edu, cov_occupation, item, resp | nrow: 14604 
+   id ( 312 ): 10202 ; 10203 ; 10204 ; 10205 ; 10201 ; 10302 ; 10303 ; 10304 
+   item ( 12 ): affil6 ; sympathy ; ce1 ; affil5 ; nps ; affil4 ; ce2 ; affil3 
+   rater ( 297 ): 10201 ; 10202 ; 10203 ; 10204 ; 10205 ; 10301 ; 10302 ; 10303 
+   resp range: 1-11  uniq: 12 

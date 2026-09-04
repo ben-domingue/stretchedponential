@@ -1,0 +1,30 @@
+table,n_categories,n_items,n_ids,n_responses,variables
+rating_speed_2025,9,8,24037,2286137,id | item | resp | rater
+spelling2pronounce_edwards2023,6,1,23282,629815,id | item | resp | rater
+moralvignettes_rakhmankulova_2025,7,16,39,254904,date | rater | id | item | resp | sample
+kalimahnorms_alzahrani_2025,8,4,2476,159058,id | rt | item | resp | cov_frequency | cov_num_letters | cov_pos | cov_arabic_word | rater
+Ellipse_Corssley_2024,6,8,8890,142240,id | rater | item | resp
+de_vries_2022_hexaco_other,5,96,398,90528,id | item | resp | rater
+fractals_rating,7,7,400,71680,id | item | rater | resp
+famous_melodies,9,5,109,42876,id | rater | item | resp | rt
+socialstereotype_hughes_2025_personality_other,5,28,312,34076,id | rater | cov_group | cov_age | cov_sex | cov_sex_open | cov_ethnicity | cov_income | cov_edu | cov_occupation | item | resp
+test_taking_much_2025_mr,2,27,1244,33393,id | item | resp | rt | rater | cov_group | cov_age | cov_gender | cov_education | cov_language | cov_country | cov_device | cov_ac | cov_disruptions
+tears,101,11,72,24019,id | rater | stimulus | phase | item | resp
+dumas_Organisciak_2022,5,10,92,21960,id | item | verbatim | rater | resp
+ptam1_immer,6,2,6877,18784,resp | rater | item | id
+emoji_scheffler_2024,101,5,107,16370,id | rt | item | rater | resp
+mpsycho_lakes,7,16,194,15458,resp | subtest | item | rater | id
+socialstereotype_hughes_2025_judgement,11,12,312,14604,id | rater | cov_group | cov_age | cov_sex | cov_sex_open | cov_ethnicity | cov_income | cov_edu | cov_occupation | item | resp
+Forthmann-2024-creative_quality,5,3719,202,14289,id | item | resp | rater | cov_object | itemcov_frequency | itemcov_idea_type | cov_age | cov_sex | cov_aggression | cov_submission_r | cov_conventionalism | cov_rwa | cov_ts | cov_flu_letterf | cov_flu_letters | cov_flu_super | cov_flu_animals | cov_vf_flu
+west_2022_psychnet_pclsv,3,12,732,10503,id | item | resp | rater
+jian-wen-low-sepsis-and-trauma-resuscitation-2024,3,62,40,4960,id | item | resp | rater | cov_intervention | cov_date_of_intervention_either_mock_code_or_virtual_simulat | cov_age | cov_gender | cov_number_of_years_post_graduate | cov_number_of_months_in_em_as_doctor_before_nuh_emd | cov_ssls_q1 | cov_ssls_q2 | cov_ssls_q3 | cov_ssls_q4 | cov_ssls_q5
+swmd_mokken,5,7,30,4557,resp | item | rater | id
+wilson_2022_kelpie_personality,5,18,228,4037,id | item | resp | cov_age_years | cov_sex | cov_work_type | rater
+thomeczek2025_les,20,20,16,3661,id | item | resp | rater | date
+det_naismith_2023,1152,3,573,3438,id | item | cov_gender | cov_test_taker_intent | cov_first_language | cov_ielts_writing | itemcov_condition | itemcov_length_characters | rater | resp
+double_marking_steele_2022,18,6,288,3339,id | item | resp | wave | rater
+Forthmann-2024-cleverness_ratings,5,3,202,3020,id | item | resp | rater | cov_age | cov_sex | cov_aggression | cov_submission_r | cov_conventionalism | cov_rwa | cov_ts | cov_flu_letterf | cov_flu_letters | cov_flu_super | cov_flu_animals | cov_vf_flu
+hpwt_bayona_2025_jobperformance,5,4,504,2016,id | cov_gender | cov_education | cov_age | rater | item | resp
+wine_luckett2021,100,3,17,1998,rater | id | item | resp
+autonomysupport_mokken,5,7,14,1813,id | rater | item | resp
+immer12_immer,29,4,20,720,resp | rater | item | id

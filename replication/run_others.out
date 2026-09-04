@@ -1,0 +1,119 @@
+=== kalimah age of acquisition (K=8) x (-)log corpus frequency   n=67546  K=8
+  category means of log-stimulus: 0:-0.698(n=2495), 1:-1.659(n=1308), 2:-1.616(n=5531), 3:-1.629(n=11230), 4:-1.559(n=14895), 5:-1.461(n=11170), 6:-1.361(n=9477), 7:-1.188(n=11440)
+  step sizes in log-stimulus:     -0.961, 0.043, -0.013, 0.070, 0.099, 0.100, 0.173
+  step ratios (growth of steps):  -0.045, -0.307, -5.307, 1.408, 1.010, 1.736
+  -- mean-function race (lower AIC better) --
+    free category means      p= 8  AIC=   -22707.8  R2obs=0.0587  R2cat=1.0000
+    quadratic                p= 3  AIC=   -21788.7  R2obs=0.0456  R2cat=0.6383
+    stretched exponential    p= 4  AIC=   -20496.9  R2obs=0.0272  R2cat=0.7293
+    linear (Fechner)         p= 2  AIC=   -18955.3  R2obs=0.0047  R2cat=-0.1816
+    power law                p= 2  AIC=   -18638.3  R2obs=0.0000  R2cat=0.0059
+  -- threshold tournament (anchored GRM) --
+    flexible (free)          p= 8  AIC=   257116.6
+    geometric widths         p= 4  AIC=   258769.5   r=0.9660
+    equidistant              p= 3  AIC=   258907.8
+  free widths (log-stimulus units): 2.034, 4.570, 4.666, 4.326, 3.284, 3.685
+  LR equidistant vs free: chi2=1801.1 df=5
+  GEOMETRIC r = 0.9660    dAIC(equi - geom) = 138.3
+=== kalimah age of acquisition ROUNDED ITEM MEAN x (-)log frequency   n=2467  K=6
+  category means of log-stimulus: 2:-1.627(n=44), 3:-1.572(n=357), 4:-1.520(n=843), 5:-1.404(n=976), 6:-1.125(n=246), 7:-1.563(n=1)
+  step sizes in log-stimulus:     0.056, 0.052, 0.117, 0.279, -0.438
+  step ratios (growth of steps):  0.928, 2.261, 2.393, -1.572
+  -- mean-function race (lower AIC better) --
+    quadratic                p= 3  AIC=     -750.6  R2obs=0.0202  R2cat=-2.1314
+    stretched exponential    p= 4  AIC=     -749.1  R2obs=0.0204  R2cat=-4.2651
+    free category means      p= 6  AIC=     -746.6  R2obs=0.0210  R2cat=1.0000
+    linear (Fechner)         p= 2  AIC=     -745.3  R2obs=0.0173  R2cat=-0.3329
+    power law                p= 2  AIC=     -737.1  R2obs=0.0140  R2cat=-0.0674
+  -- threshold tournament (anchored GRM) --
+    flexible (free)          p= 6  AIC=     6474.6
+    geometric widths         p= 4  AIC=     6557.2   r=1.1709
+    equidistant              p= 3  AIC=     6588.1
+  free widths (log-stimulus units): 8.531, 6.010, 7.910, 20.198
+  LR equidistant vs free: chi2=119.5 df=3
+  GEOMETRIC r = 1.1709    dAIC(equi - geom) = 30.9
+=== kalimah age of acquisition (K=7) x (-)log corpus frequency [0 dropped]   n=65051  K=7
+  category means of log-stimulus: 1:-1.659(n=1308), 2:-1.616(n=5531), 3:-1.629(n=11230), 4:-1.559(n=14895), 5:-1.461(n=11170), 6:-1.361(n=9477), 7:-1.188(n=11440)
+  step sizes in log-stimulus:     0.043, -0.013, 0.070, 0.099, 0.100, 0.173
+  step ratios (growth of steps):  -0.307, -5.307, 1.408, 1.010, 1.736
+  -- mean-function race (lower AIC better) --
+    free category means      p= 7  AIC=   -21429.5  R2obs=0.0328  R2cat=1.0000
+    quadratic                p= 3  AIC=   -21425.1  R2obs=0.0326  R2cat=0.9891
+    stretched exponential    p= 4  AIC=   -21418.2  R2obs=0.0326  R2cat=0.9909
+    linear (Fechner)         p= 2  AIC=   -21236.0  R2obs=0.0298  R2cat=0.8177
+    power law                p= 2  AIC=   -20836.1  R2obs=0.0238  R2cat=0.4201
+  -- threshold tournament (anchored GRM) --
+    flexible (free)          p= 7  AIC=   234518.7
+    geometric widths         p= 4  AIC=   235095.5   r=0.8271
+    equidistant              p= 3  AIC=   238001.5
+  free widths (log-stimulus units): 4.838, 3.314, 2.772, 2.037, 2.252
+  LR equidistant vs free: chi2=3490.8 df=4
+  GEOMETRIC r = 0.8271    dAIC(equi - geom) = 2906.0
+=== kalimah concreteness (K=8) x log corpus frequency   n=67453  K=8
+  category means of log-stimulus: 0:0.753(n=2457), 1:1.516(n=27632), 2:1.528(n=3609), 3:1.509(n=2721), 4:1.552(n=6090), 5:1.494(n=3216), 6:1.421(n=3387), 7:1.343(n=18341)
+  step sizes in log-stimulus:     0.762, 0.012, -0.019, 0.043, -0.058, -0.073, -0.078
+  step ratios (growth of steps):  0.016, -1.581, -2.278, -1.347, 1.257, 1.062
+  -- mean-function race (lower AIC better) --
+    free category means      p= 8  AIC=   -20744.6  R2obs=0.0316  R2cat=1.0000
+    stretched exponential    p= 4  AIC=   -20028.0  R2obs=0.0211  R2cat=0.9241
+    quadratic                p= 3  AIC=   -19511.6  R2obs=0.0136  R2cat=0.3838
+    linear (Fechner)         p= 2  AIC=   -18683.7  R2obs=0.0014  R2cat=-0.1399
+    power law                p= 2  AIC=   -18595.1  R2obs=0.0000  R2cat=-0.0697
+  -- threshold tournament (anchored GRM) --
+    flexible (free)          p= 8  AIC=   221093.9
+    geometric widths         p= 4  AIC=   251635.9   r=0.5326
+    equidistant              p= 3  AIC=   289748.7
+  free widths (log-stimulus units): 74.418, 5.231, 3.937, 9.087, 5.140, 5.870
+  LR equidistant vs free: chi2=68664.9 df=5
+  GEOMETRIC r = 0.5326    dAIC(equi - geom) = 38112.8
+=== kalimah concreteness ROUNDED ITEM MEAN x log frequency   n=2467  K=8
+  category means of log-stimulus: 0:0.452(n=1), 1:0.683(n=41), 2:1.428(n=634), 3:1.607(n=808), 4:1.474(n=431), 5:1.351(n=311), 6:1.150(n=221), 7:1.038(n=20)
+  step sizes in log-stimulus:     0.232, 0.745, 0.178, -0.132, -0.124, -0.201, -0.112
+  step ratios (growth of steps):  3.215, 0.239, -0.742, 0.934, 1.624, 0.560
+  -- mean-function race (lower AIC better) --
+    free category means      p= 8  AIC=     -787.7  R2obs=0.0387  R2cat=1.0000
+    quadratic                p= 3  AIC=     -774.5  R2obs=0.0296  R2cat=0.6688
+    stretched exponential    p= 4  AIC=     -732.7  R2obs=0.0139  R2cat=-0.6401
+    linear (Fechner)         p= 2  AIC=     -714.2  R2obs=0.0049  R2cat=-0.9161
+    power law                p= 2  AIC=     -706.1  R2obs=0.0016  R2cat=-0.9681
+  -- threshold tournament (anchored GRM) --
+    flexible (free)          p= 8  AIC=     7939.3
+    geometric widths         p= 4  AIC=     8301.0   r=0.7918
+    equidistant              p= 3  AIC=     8455.4
+  free widths (log-stimulus units): 36.626, 30.045, 13.543, 8.153, 9.590, 25.245
+  LR equidistant vs free: chi2=526.2 df=5
+  GEOMETRIC r = 0.7918    dAIC(equi - geom) = 154.4
+=== kalimah concreteness (K=7) x log corpus frequency [0 dropped]   n=64996  K=7
+  category means of log-stimulus: 1:1.516(n=27632), 2:1.528(n=3609), 3:1.509(n=2721), 4:1.552(n=6090), 5:1.494(n=3216), 6:1.421(n=3387), 7:1.343(n=18341)
+  step sizes in log-stimulus:     0.012, -0.019, 0.043, -0.058, -0.073, -0.078
+  step ratios (growth of steps):  -1.581, -2.278, -1.347, 1.257, 1.062
+  -- mean-function race (lower AIC better) --
+    free category means      p= 7  AIC=   -19638.7  R2obs=0.0086  R2cat=1.0000
+    quadratic                p= 3  AIC=   -19635.9  R2obs=0.0085  R2cat=0.9296
+    stretched exponential    p= 4  AIC=   -19624.9  R2obs=0.0083  R2cat=0.9145
+    linear (Fechner)         p= 2  AIC=   -19507.5  R2obs=0.0065  R2cat=0.4630
+    power law                p= 2  AIC=   -19412.4  R2obs=0.0050  R2cat=0.1164
+  -- threshold tournament (anchored GRM) --
+    flexible (free)          p= 7  AIC=   199619.2
+    geometric widths         p= 4  AIC=   201153.4   r=1.0419
+    equidistant              p= 3  AIC=   201217.2
+  free widths (log-stimulus units): 1.355, 1.013, 2.320, 1.305, 1.484
+  LR equidistant vs free: chi2=1606.0 df=4
+  GEOMETRIC r = 1.0419    dAIC(equi - geom) = 63.9
+=== Forthmann-2024 creative quality x (-)log idea frequency   n=14028  K=5
+  category means of log-stimulus: 1:1.055(n=2132), 2:1.146(n=5359), 3:1.368(n=4122), 4:1.504(n=1748), 5:1.703(n=667)
+  step sizes in log-stimulus:     0.092, 0.222, 0.136, 0.199
+  step ratios (growth of steps):  2.411, 0.613, 1.467
+  -- mean-function race (lower AIC better) --
+    free category means      p= 5  AIC=   -20349.1  R2obs=0.1184  R2cat=1.0000
+    quadratic                p= 3  AIC=   -20310.9  R2obs=0.1157  R2cat=0.9901
+    stretched exponential    p= 4  AIC=   -20307.9  R2obs=0.1157  R2cat=0.9900
+    linear (Fechner)         p= 2  AIC=   -20303.8  R2obs=0.1151  R2cat=0.9858
+    power law                p= 2  AIC=   -20094.7  R2obs=0.1019  R2cat=0.8652
+  -- threshold tournament (anchored GRM) --
+    flexible (free)          p= 5  AIC=    38125.7
+    geometric widths         p= 4  AIC=    38147.4   r=0.8409
+    equidistant              p= 3  AIC=    38336.5
+  free widths (log-stimulus units): 1.579, 1.235, 1.179
+  LR equidistant vs free: chi2=214.8 df=2
+  GEOMETRIC r = 0.8409    dAIC(equi - geom) = 189.1

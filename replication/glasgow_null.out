@@ -1,0 +1,12 @@
+n=5542  median raters/word=33  median within-word SD=1.51
+item mean FAM = 2.724 + 0.647*Zipf ; residual between-word SD = 0.713
+
+OBSERVED (Glasgow item means) r = 1.474  counts [   0   27  244  855 1822 2343  251]  kept [3, 4, 5, 6, 7]
+  SIMULATED (Fechnerian null) r = 1.059  counts [   0    1   99  877 2359 1862  344]  kept [3, 4, 5, 6, 7]
+  SIMULATED (Fechnerian null) r = 1.091  counts [   0    1  109  892 2340 1887  313]  kept [3, 4, 5, 6, 7]
+  SIMULATED (Fechnerian null) r = 1.093  counts [   0    2   97  877 2324 1929  313]  kept [3, 4, 5, 6, 7]
+  SIMULATED (Fechnerian null) r = 1.044  counts [   0    1   96  868 2388 1842  347]  kept [3, 4, 5, 6, 7]
+  SIMULATED (Fechnerian null) r = 1.062  counts [   0    1   93  873 2379 1878  318]  kept [3, 4, 5, 6, 7]
+  SIMULATED (Fechnerian null) r = 1.122  counts [   0    2  111  866 2334 1929  300]  kept [3, 4, 5, 6, 7]
+
+A strictly equidistant generating model, averaged and rounded the same way, gives r = 1.079 [1.044, 1.122] vs observed 1.474.

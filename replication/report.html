@@ -1,0 +1,747 @@
+<title>IRW Tests of the Spacing Law</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Serif:wght@500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  --ground:#F1F4F6; --surface:#FFFFFF; --surface-2:#F7F9FA;
+  --ink:#141A20; --ink-2:#3D4952; --muted:#5F6C76; --faint:#8A959D;
+  --rule:#DCE3E7; --rule-soft:#E9EDF0;
+  --observed:#2F5FA8; --null:#B5762A; --flag:#9E3B31; --ok:#2E6B4F;
+  --observed-soft:rgba(47,95,168,.10); --null-soft:rgba(181,118,42,.12);
+  --shadow:0 1px 2px rgba(20,26,32,.05), 0 6px 20px -12px rgba(20,26,32,.28);
+  --serif:"IBM Plex Serif",Georgia,"Times New Roman",serif;
+  --sans:"IBM Plex Sans",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --measure:69ch;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#12161A; --surface:#1A2026; --surface-2:#1F262C;
+    --ink:#E7ECEF; --ink-2:#C2CCD3; --muted:#95A2AB; --faint:#75828B;
+    --rule:#2B343B; --rule-soft:#232B32;
+    --observed:#4A83CE; --null:#BE8235; --flag:#D2695C; --ok:#5EA381;
+    --observed-soft:rgba(74,131,206,.16); --null-soft:rgba(190,130,53,.16);
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -14px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#12161A; --surface:#1A2026; --surface-2:#1F262C;
+  --ink:#E7ECEF; --ink-2:#C2CCD3; --muted:#95A2AB; --faint:#75828B;
+  --rule:#2B343B; --rule-soft:#232B32;
+  --observed:#4A83CE; --null:#BE8235; --flag:#D2695C; --ok:#5EA381;
+  --observed-soft:rgba(74,131,206,.16); --null-soft:rgba(190,130,53,.16);
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -14px rgba(0,0,0,.7);
+}
+
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--sans);
+  font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased;padding:0 20px 96px}
+.wrap{max-width:var(--measure);margin:0 auto}
+.wide{max-width:960px;margin:0 auto}
+
+/* ---------- masthead ---------- */
+header.masthead{border-bottom:1px solid var(--rule);padding:44px 0 30px;margin-bottom:38px}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);display:flex;flex-wrap:wrap;gap:10px 16px;align-items:baseline}
+.eyebrow .sep{color:var(--faint)}
+h1{font-family:var(--serif);font-weight:600;font-size:clamp(30px,4.4vw,42px);line-height:1.12;
+  letter-spacing:-.015em;margin:16px 0 0;text-wrap:balance}
+.standfirst{font-size:18.5px;line-height:1.55;color:var(--ink-2);margin:16px 0 0;max-width:60ch}
+.standfirst b{font-weight:600;color:var(--ink)}
+
+/* ---------- verdict ---------- */
+.verdicts{display:grid;gap:12px;margin:30px 0 0}
+.verdict{display:grid;grid-template-columns:auto 1fr;gap:0 16px;align-items:start;
+  background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--c,var(--observed));
+  padding:15px 18px;box-shadow:var(--shadow)}
+.verdict .n{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--c,var(--observed));
+  padding-top:3px;letter-spacing:.06em}
+.verdict h3{margin:0;font-family:var(--sans);font-size:15.5px;font-weight:600;line-height:1.4}
+.verdict p{margin:5px 0 0;font-size:14.5px;line-height:1.55;color:var(--ink-2)}
+
+/* ---------- sections ---------- */
+section{margin-top:56px}
+h2{font-family:var(--serif);font-weight:600;font-size:24px;letter-spacing:-.01em;
+  margin:0 0 6px;text-wrap:balance}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 10px}
+p{margin:0 0 15px}
+h3.sub{font-family:var(--sans);font-size:15px;font-weight:600;margin:28px 0 8px;letter-spacing:.005em}
+a{color:var(--observed);text-decoration:underline;text-underline-offset:2.5px;
+  text-decoration-thickness:.06em;text-decoration-color:color-mix(in srgb,var(--observed) 45%,transparent)}
+a:hover{text-decoration-color:var(--observed)}
+code,.m{font-family:var(--mono);font-size:.885em;font-variant-ligatures:none}
+code{background:var(--surface-2);border:1px solid var(--rule-soft);padding:.08em .34em;border-radius:2px}
+strong{font-weight:600}
+em{font-style:italic}
+ul{margin:0 0 15px;padding-left:1.15em}
+li{margin-bottom:7px}
+li::marker{color:var(--faint)}
+
+/* ---------- figures ---------- */
+figure{margin:26px 0 0;background:var(--surface);border:1px solid var(--rule);
+  padding:20px 20px 16px;box-shadow:var(--shadow)}
+figure .fig-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+  flex-wrap:wrap;margin-bottom:14px}
+figure h4{margin:0;font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:.005em}
+figcaption{margin-top:12px;padding-top:11px;border-top:1px solid var(--rule-soft);
+  font-size:12.8px;line-height:1.5;color:var(--muted)}
+.legend{display:flex;gap:14px;font-family:var(--mono);font-size:11.5px;color:var(--muted);flex-wrap:wrap}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.swatch{width:11px;height:11px;border-radius:2px;display:inline-block}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+svg{display:block;max-width:100%;height:auto}
+svg text{font-family:var(--mono);fill:var(--muted)}
+.axis-line{stroke:var(--rule);stroke-width:1}
+.grid-line{stroke:var(--rule-soft);stroke-width:1}
+
+/* ---------- table ---------- */
+table{border-collapse:collapse;width:100%;font-size:13.2px;font-variant-numeric:tabular-nums}
+th,td{text-align:right;padding:8px 9px;border-bottom:1px solid var(--rule-soft);white-space:nowrap}
+th{font-family:var(--mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--muted);font-weight:500;border-bottom:1px solid var(--rule);vertical-align:bottom}
+td:first-child,th:first-child{text-align:left;white-space:normal;min-width:190px}
+tbody tr.control td{background:var(--observed-soft)}
+tbody tr:last-child td{border-bottom:none}
+td.num{font-family:var(--mono)}
+td.r{font-family:var(--mono);font-weight:600}
+.rowname{font-weight:600}
+.rowsub{display:block;font-weight:400;color:var(--muted);font-size:11.8px;line-height:1.35;
+  font-family:var(--mono);margin-top:2px;white-space:normal}
+.chip{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;
+  padding:1.5px 6px;border-radius:2px;border:1px solid currentColor;white-space:nowrap}
+.chip.up{color:var(--observed)} .chip.flat{color:var(--muted)} .chip.ctl{color:var(--ok)}
+
+/* ---------- pull ---------- */
+.pull{border-left:2px solid var(--null);padding:2px 0 2px 18px;margin:24px 0;
+  font-family:var(--serif);font-size:19px;line-height:1.45;color:var(--ink)}
+.note{background:var(--surface-2);border:1px solid var(--rule-soft);padding:14px 16px;
+  font-size:14px;line-height:1.55;color:var(--ink-2);margin:22px 0}
+.note b{color:var(--ink)}
+
+/* ---------- ledger ---------- */
+.ledger{font-family:var(--mono);font-size:12.6px;line-height:1.75;background:var(--surface);
+  border:1px solid var(--rule);padding:16px 18px;margin-top:18px;overflow-x:auto}
+.ledger div{white-space:pre;color:var(--ink-2)}
+.ledger .hd{color:var(--muted);border-bottom:1px solid var(--rule-soft);padding-bottom:4px;margin-bottom:4px}
+
+footer{margin-top:64px;padding-top:22px;border-top:1px solid var(--rule);
+  font-family:var(--mono);font-size:11.5px;line-height:1.8;color:var(--faint)}
+footer a{color:var(--muted)}
+
+/* ---------- tooltip ---------- */
+#tip{position:fixed;pointer-events:none;opacity:0;transition:opacity .1s;z-index:50;
+  background:var(--surface);border:1px solid var(--rule);box-shadow:var(--shadow);
+  padding:7px 10px;font-family:var(--mono);font-size:11.5px;line-height:1.5;color:var(--ink);
+  max-width:260px;white-space:pre-line}
+.hit{cursor:crosshair}
+:focus-visible{outline:2px solid var(--observed);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div id="tip" role="status" aria-live="polite"></div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">
+      <span>Item Response Warehouse</span><span class="sep">/</span>
+      <span>replication attempt</span><span class="sep">/</span>
+      <span>4 September 2026</span>
+    </div>
+    <h1>IRW Tests of the Spacing Law</h1>
+    <p class="standfirst">Chituc's stretched-exponential page finds rating categories that widen
+      geometrically in log-stimulus space, <b>r&nbsp;≈&nbsp;1.17–1.41</b>. We ran his battery on
+      four IRW datasets — including 604,265 <b>individual</b> word ratings, the level his own
+      word-familiarity result cannot reach.</p>
+
+    <div class="verdicts">
+      <div class="verdict" style="--c:var(--ok)">
+        <span class="n">01</span>
+        <div><h3>The battery reproduces his published result.</h3>
+        <p>Re-run on the Glasgow Norms it returns <span class="m">r&nbsp;=&nbsp;1.47</span>
+        (1.36 before trimming sparse cells) against his 1.409, and recovers a known
+        <span class="m">r</span> without bias on simulated data.</p></div>
+      </div>
+      <div class="verdict" style="--c:var(--observed)">
+        <span class="n">02</span>
+        <div><h3>At the item-mean level, the signature replicates.</h3>
+        <p>23k English words rated for pronunciation difficulty against SUBTLEX frequency give
+        <span class="m">r&nbsp;=&nbsp;1.39</span>; Arabic age-of-acquisition norms 1.21;
+        creative-quality ratings 1.19. Equidistant spacing loses everywhere.</p></div>
+      </div>
+      <div class="verdict" style="--c:var(--flag)">
+        <span class="n">03</span>
+        <div><h3>At the individual-rating level, it disappears.</h3>
+        <p>The same words and the same raters, un-averaged: <span class="m">r&nbsp;=&nbsp;0.97</span>,
+        and a median of <span class="m">1.01</span> across 366 individual raters. A null model with
+        no widening at all, averaged and rounded the way item norms are, manufactures
+        <span class="m">r&nbsp;=&nbsp;1.29</span> of the observed 1.39.</p></div>
+      </div>
+      <div class="verdict" style="--c:var(--null)">
+        <span class="n">04</span>
+        <div><h3>And the widening sits at the wrong end of the scale.</h3>
+        <p>In all three IRW batteries the rated attribute runs <em>against</em> frequency. The
+        widening tracks the high-frequency end of the stimulus every time — which is the
+        <em>bottom</em> of the scale as administered, not the top.</p></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="wrap">
+  <p class="kicker">What was run</p>
+  <h2>The battery, and what it had to beat</h2>
+  <p>Chituc's observable claim is that an ordinal rating, treated as a categorization of a
+  stimulus Φ measured in log-Φ space, has category boundaries whose widths grow by a constant
+  factor <span class="m">r&nbsp;&gt;&nbsp;1</span> per step. We implemented both halves of his
+  test from the page:</p>
+  <ul>
+    <li><strong>The mean-function race.</strong> OLS/NLS of log&nbsp;Φ on the rating <span class="m">S</span>:
+      stretched exponential <span class="m">log Φ = c + A·e<sup>βS</sup></span> against quadratic,
+      linear-in-<span class="m">S</span> (Fechner), power law, and free category means. AIC on
+      observations, R² on the category means.</li>
+    <li><strong>The threshold tournament.</strong> An anchored graded-response model
+      (ordinal logistic on standardized log&nbsp;Φ) fit under three threshold families —
+      free (<span class="m">K</span> parameters), equidistant (3), and geometric widths (4).
+      <span class="m">r</span> is read off the geometric family, which is the estimate his page
+      treats as authoritative.</li>
+  </ul>
+  <p>Two checks before trusting any of it. On simulated data the estimator returns
+  <span class="m">1.008</span>, <span class="m">1.237</span> and <span class="m">1.403</span>
+  for true <span class="m">r</span> of 1.00, 1.24 and 1.41 — no bias, and a clean null. And re-run
+  on his own word-familiarity battery (Glasgow FAM item means × SUBTLEX Zipf, 5,515 words after
+  the join) it returns <span class="m">r&nbsp;=&nbsp;1.474</span>, or <span class="m">1.363</span>
+  if sparse categories are kept, against his published <span class="m">1.409</span>. That row is
+  the control throughout, shaded below.</p>
+
+  <div class="note">
+    <b>One orientation convention, used throughout.</b> The law is directional: widths that grow
+    toward the top of the scale shrink toward the bottom, so a reversal turns
+    <span class="m">r</span> into <span class="m">1/r</span>. Every battery here is stated with
+    the rating running <em>the same way as frequency</em>, so the numbers are comparable to the
+    Glasgow control. Where the IRW variable runs the other way it is reversed and renamed —
+    "ease" for 7&nbsp;−&nbsp;difficulty, "earliness" for 8&nbsp;−&nbsp;age of acquisition,
+    "conventionality" for 6&nbsp;−&nbsp;creative quality. Section 4 is about what that reversal costs.
+  </div>
+</section>
+
+<section class="wide">
+  <div class="wrap">
+    <p class="kicker">Results</p>
+    <h2>Five batteries</h2>
+    <p>All five use a frequency count as the stimulus. The IRW join to SUBTLEX-US matched
+    22,791 of the 23,282 word strings in <span class="m">spelling2pronounce_edwards2023</span>
+    (97.9%); the other two carry their frequency in-table.</p>
+  </div>
+
+  <figure>
+    <div class="fig-head">
+      <h4>Estimated geometric width ratio r</h4>
+      <div class="legend"><span>r = 1 means equally spaced categories in log frequency</span></div>
+    </div>
+    <div class="scroll"><div id="chart-r"></div></div>
+    <figcaption>Geometric-family estimate from the anchored GRM, log-scaled axis. The dashed
+      rule at r&nbsp;=&nbsp;1 is Fechnerian spacing — no widening. Chituc's published word-familiarity
+      value (1.409) is marked on the control row.</figcaption>
+  </figure>
+
+  <figure>
+    <div class="fig-head"><h4>The batteries in full</h4></div>
+    <div class="scroll">
+    <table>
+      <thead><tr>
+        <th>Battery</th><th>n</th><th>K</th><th>r</th>
+        <th>ΔAIC<br>equi − geom</th><th>R²&nbsp;cat<br>SE</th><th>R²&nbsp;cat<br>linear</th><th></th>
+      </tr></thead>
+      <tbody id="tbl-body"></tbody>
+    </table>
+    </div>
+    <figcaption>Sparse categories (&lt;0.5% of the sample) dropped by one rule applied identically
+      to every row, which is why K differs. ΔAIC is the equidistant family's penalty against the
+      geometric family — positive everywhere, i.e. equal spacing loses in all five. R²&nbsp;cat is
+      fit to the category means, where the stretched exponential wins throughout, including in the
+      row where r&nbsp;&lt;&nbsp;1.</figcaption>
+  </figure>
+
+  <figure>
+    <div class="fig-head">
+      <h4>Category widths, low frequency → high frequency</h4>
+      <div class="legend">
+        <span><span class="swatch" style="background:var(--observed)"></span>free-threshold widths</span>
+        <span><span class="swatch" style="background:var(--null)"></span>fitted geometric progression</span>
+      </div>
+    </div>
+    <div class="scroll"><div id="chart-widths"></div></div>
+    <figcaption>Widths between freely estimated GRM boundaries, in log-frequency units, on a log
+      y-axis where a geometric progression is a straight line. Chituc's Figure 5 run on each
+      battery. The individual-rating panel is flat; every aggregated panel rises.</figcaption>
+  </figure>
+</section>
+
+<section class="wrap">
+  <p class="kicker">Finding 1</p>
+  <h2>The aggregation step manufactures most of it</h2>
+  <p><span class="m">spelling2pronounce_edwards2023</span> is the only battery here with
+  individual responses at scale: 629,815 ratings of 23,282 word strings by 2,515 raters, one
+  item ("difficulty"). That makes it the first chance to ask whether the spacing law is a fact
+  about raters or a fact about item norms — the caveat Chituc's page states about its own
+  word-familiarity result, which is aggregate-only.</p>
+
+  <p>Analyzed his way — mean over raters, rounded to an integer, one row per word — it gives
+  <span class="m">r&nbsp;=&nbsp;1.388</span>. Analyzed as 604,265 separate ratings it gives
+  <span class="m">r&nbsp;=&nbsp;0.972</span>. Fit rater by rater on the 400 raters sampled from
+  the 2,408 who rated at least 200 words, the median is <span class="m">1.008</span>, the
+  interquartile range <span class="m">[0.889, 1.111]</span>, and 52.7% of raters land above 1 —
+  a coin flip.</p>
+
+  <figure>
+    <div class="fig-head"><h4>r fitted separately in 366 individual raters</h4></div>
+    <div class="scroll"><div id="chart-rater"></div></div>
+    <figcaption>Each rater's own geometric-width ratio, from their own 200+ word ratings against
+      SUBTLEX Zipf. Median 1.008. For comparison the stellar section of Chituc's page runs its
+      per-observer stability check on 14 observers.</figcaption>
+  </figure>
+
+  <p class="pull">A generating model with no widening in it at all, averaged over raters and
+  rounded the way item norms are, produces r&nbsp;=&nbsp;1.285. The observed value is 1.388.</p>
+
+  <p>That is the direct test. We took the fitted individual-level model — free thresholds,
+  <span class="m">r&nbsp;=&nbsp;0.972</span>, no widening — added a word random effect tuned
+  until simulated per-word means matched the real dispersion (σ&nbsp;=&nbsp;0.767, giving an SD
+  of 0.684 against the observed 0.683), simulated each word's real number of raters, then
+  averaged and rounded exactly as the aggregate battery does. Across six replicates the
+  manufactured <span class="m">r</span> was 1.275–1.300. Roughly 77% of the observed widening,
+  on a log scale, is made by the aggregation step alone.</p>
+
+  <figure>
+    <div class="fig-head">
+      <h4>Observed r vs. the same analysis run on a no-widening null</h4>
+      <div class="legend">
+        <span><span class="swatch" style="background:var(--observed)"></span>observed</span>
+        <span><span class="swatch" style="background:var(--null)"></span>null model, averaged and rounded</span>
+      </div>
+    </div>
+    <div class="scroll"><div id="chart-null"></div></div>
+    <figcaption>Both nulls are calibrated to their dataset's own dispersion, per-word rater counts
+      and regression on frequency, then pushed through the identical average-then-round pipeline.
+      The spelling null is fitted to real individual ratings; the Glasgow null is synthetic, since
+      the Glasgow Norms publish only means, SDs and Ns.</figcaption>
+  </figure>
+
+  <p>The same test run on the Glasgow Norms comes out the other way, and this matters for how
+  the finding should be read. A strictly Fechnerian generating model — an individual familiarity
+  rating linear in Zipf plus noise, calibrated to Glasgow's own slope (0.647 per Zipf unit),
+  its residual between-word SD (0.713), its per-word rating SDs (median 1.51) and its per-word
+  N (median 33) — yields only <span class="m">r&nbsp;=&nbsp;1.087</span> against the observed
+  <span class="m">1.474</span>. <strong>Chituc's word-familiarity result survives its aggregation
+  null; the IRW word-difficulty result does not.</strong> The honest conclusion is not that the
+  law is an artifact, but that the aggregate unit of analysis needs a null model attached, and
+  that IRW is where the individual-level data to build one lives.</p>
+</section>
+
+<section class="wrap">
+  <p class="kicker">Finding 2</p>
+  <h2>The widening follows the stimulus, not the scale</h2>
+  <p>In the Glasgow battery the top of the rating scale and the high-frequency end of the
+  stimulus are the same place: familiar words are frequent words. That coincidence is what makes
+  the result hard to interpret — it cannot separate "the report scale compresses at its top"
+  (the psychometric law <span class="m">S&nbsp;=&nbsp;k·log&nbsp;ψ</span> the page derives the
+  form from) from "log frequency is spaced this way relative to any judgment correlated with it".</p>
+
+  <p>All three IRW batteries break that coincidence, because in each of them the rated attribute
+  runs <em>against</em> frequency:</p>
+  <ul>
+    <li><strong>Pronunciation difficulty</strong> (<span class="m">spelling2pronounce</span>,
+      item-level correlation with Zipf = −0.354): rarer words are harder.</li>
+    <li><strong>Age of acquisition</strong> (<span class="m">kalimahnorms_alzahrani_2025</span>,
+      Arabic, K&nbsp;=&nbsp;8, frequency in-table): rarer words are learned later.</li>
+    <li><strong>Creative quality</strong> (<span class="m">Forthmann-2024-creative_quality</span>,
+      <span class="m">itemcov_frequency</span> on the idea): rarer ideas score higher.</li>
+  </ul>
+  <p>Three for three, the widening lands at the high-frequency end of the stimulus — which is
+  the <em>bottom</em> of every one of those scales as it was actually administered. Categories
+  are widest where words are easiest, learned earliest, and ideas most conventional. On the
+  report-scale reading, the widening should have followed the top of the response scale in each
+  case, and it does not.</p>
+  <p>A defender can answer that raters mentally rate "ease" rather than difficulty, and the
+  reversal is bookkeeping. That answer is harder to run three times: "creative quality" is
+  unambiguously the positively-worded pole of its scale. The more parsimonious reading is a
+  compression in the frequency-to-judgment mapping itself — very frequent words are all easy,
+  all early, all conventional, so boundaries spread out at that end regardless of what is being
+  judged.</p>
+
+  <h3 class="sub">The anchor control does not settle it here</h3>
+  <p>Chituc's "range, not frequency" section shows the log-magnitude anchor beating a rank/CDF
+  anchor by ΔAIC ≈ 10 on the IGN data. Run on word frequency the result reverses and is small:
+  the rank anchor wins by 6.7 AIC on Glasgow and 70.2 on the individual spelling data, and the
+  fitted <span class="m">r</span> is essentially identical under both
+  (1.363 vs 1.350; 0.9715 vs 0.9713). That is a statement about Zipf distributions, not about
+  the law — log frequency and the normal quantile of frequency rank are close to linearly related
+  in these corpora, so the test has almost no power on word data. It should not be read either way.</p>
+</section>
+
+<section class="wrap">
+  <p class="kicker">Where this leaves it</p>
+  <h2>What we'd say to Vlad</h2>
+  <ul>
+    <li><strong>The estimator and the finding both hold up under re-implementation.</strong>
+      An independent build of the battery, from the page's prose, reproduces the published
+      word-familiarity <span class="m">r</span> to within the trimming rule, and reproduces the
+      whole ordering of the mean-function race.</li>
+    <li><strong>The aggregate-only caveat now has a number on it.</strong> In the one corpus where
+      individual ratings exist at scale, average-then-round generates
+      <span class="m">r&nbsp;=&nbsp;1.29</span> out of nothing. Glasgow's own null only reaches
+      1.09, so its result survives — but every future aggregate battery should report the null
+      alongside the estimate, because the size of the artifact depends on rater count, within-word
+      SD, and where the item means sit relative to the scale bounds.</li>
+    <li><strong>Individual-level replication is the open question.</strong> 604,265 single ratings
+      of 23k words give <span class="m">r&nbsp;=&nbsp;0.97</span> and a per-rater median of 1.01.
+      That is one construct on one 6-point scale with a weak anchor (|ρ|&nbsp;=&nbsp;0.35), so it
+      is not decisive against the law. It is decisive that the question is answerable, and that
+      the answer is not automatic.</li>
+    <li><strong>The next test is a familiarity rating with individual responses.</strong>
+      <span class="m">emoji_scheffler_2024</span> has familiarity ratings of 107 emoji on a
+      0–100 scale (K&nbsp;=&nbsp;101) by 153 raters, and emoji frequency is objectively
+      countable; <span class="m">famous_melodies</span> has familiarity and age-of-acquisition for
+      109 melodies from 397 raters on a 9-point scale. Either would put the exact Glasgow
+      construct at the individual level, and the two together span
+      K&nbsp;=&nbsp;9&nbsp;→&nbsp;101 — the sweep the page predicts should drive
+      <span class="m">r</span>&nbsp;→&nbsp;1. Both need an external exposure count assembled first.</li>
+  </ul>
+
+  <h3 class="sub">Caveats we'd want stated with the numbers</h3>
+  <ul>
+    <li><span class="m">r</span> moves with the sparse-cell rule: the Glasgow control is 1.474
+      under the 0.5% rule and 1.363 keeping all categories. Every number here uses the one rule,
+      applied to every row.</li>
+    <li>Frequency is the <em>stimulus</em> only for the Glasgow battery. For difficulty, age of
+      acquisition and creative quality it is a correlate, and a weak one — which limits how much
+      a negative result in those three can carry on its own.</li>
+    <li>The threshold likelihood is evaluated on x binned into 600 equal-count cells for speed.
+      On the simulation check this changes recovered <span class="m">r</span> in the fourth decimal.</li>
+    <li>The Arabic norms code 0 as a distinct response for both age of acquisition and
+      concreteness with a mean frequency far off the trend, which reads as a missing-data code;
+      it is dropped. Keeping it moves that battery's <span class="m">r</span> substantially.</li>
+  </ul>
+</section>
+
+<section class="wrap">
+  <p class="kicker">Reproducing it</p>
+  <h2>What is on disk</h2>
+  <div class="ledger">
+    <div class="hd">/home/ben/Dropbox/projects/vlad_stretched/replication/</div>
+    <div>battery.py         the battery: mean-function race + threshold tournament</div>
+    <div>anchors.py         log-magnitude vs rank/CDF anchor race</div>
+    <div>prep.py            SUBTLEX-US loader, IRW table readers</div>
+    <div>sim.py             estimator validation on synthetic r = 1.00 / 1.24 / 1.41</div>
+    <div>control.py         Glasgow Norms positive control</div>
+    <div>agg_artifact2.py   calibrated average-then-round null, spelling2pronounce</div>
+    <div>glasgow_null.py    Fechnerian null, Glasgow Norms</div>
+    <div>final.py           one pass over everything -> data/results.json</div>
+    <div>fetch.R            irw_fetch for the three IRW tables</div>
+    <div>data/results.json  every number on this page</div>
+  </div>
+  <p style="margin-top:16px">Inputs: IRW via the <span class="m">irw</span> R package v1.1.2
+  (<span class="m">spelling2pronounce_edwards2023</span>,
+  <span class="m">kalimahnorms_alzahrani_2025</span>,
+  <span class="m">Forthmann-2024-creative_quality</span>); SUBTLEX-US 74,286-word list from
+  Ghent; the Glasgow Norms from the Behavior Research Methods supplement. Seed 42 throughout.</p>
+</section>
+
+</main>
+
+<footer class="wrap">
+  <div>Source: <a href="https://vladchituc.com/s/stretched-exponential.html">vladchituc.com/s/stretched-exponential.html</a> (Chituc, 23 August 2026)</div>
+  <div>Scouting run that picked these tables: <a href="https://claude.ai/code/artifact/2ac54beb-21ac-459e-a980-01e0c086670f">IRW Candidates for the Spacing Law</a></div>
+  <div>Prepared 4 September 2026 · numbers read from data/results.json, not retyped</div>
+</footer>
+
+<script>
+const D = {
+  batteries: [
+    {key:"glasgow", name:"Glasgow FAM × SUBTLEX Zipf", sub:"control · rounded item mean",
+     n:5515, K:5, r:1.474, dAIC:403, se:0.9992, lin:0.9711,
+     widths:[1.221,1.212,2.262], control:true, chip:["ctl","control"], pub:1.409},
+    {key:"spell_agg", name:"spelling2pronounce, item mean", sub:"ease (7 − difficulty) × Zipf",
+     n:22791, K:5, r:1.388, dAIC:793, se:0.9987, lin:0.7754,
+     widths:[2.771,2.652,4.082], chip:["up","widens"]},
+    {key:"spell_ind", name:"spelling2pronounce, individual", sub:"604,265 single ratings × Zipf",
+     n:604265, K:6, r:0.972, dAIC:315, se:0.9869, lin:0.9456,
+     widths:[2.749,2.271,2.268,2.337], chip:["flat","flat"]},
+    {key:"kalimah", name:"kalimah norms (Arabic)", sub:"earliness (8 − AoA) × log frequency",
+     n:65051, K:7, r:1.209, dAIC:2906, se:0.9909, lin:0.8177,
+     widths:[2.254,2.038,2.774,3.316,4.841], chip:["up","widens"]},
+    {key:"forthmann", name:"Forthmann-2024 ideas", sub:"conventionality × log idea frequency",
+     n:14028, K:5, r:1.189, dAIC:189, se:0.9900, lin:0.9858,
+     widths:[1.179,1.235,1.579], chip:["up","widens"]}
+  ],
+  raterHist: {edges:[0.55,0.6,0.65,0.7,0.75,0.8,0.85,0.9,0.95,1.0,1.05,1.1,1.15,1.2,1.25,1.3,1.35,1.4,1.45,1.5,1.55,1.6,1.65,1.7,1.75,1.8,1.85],
+              counts:[3,4,8,14,15,19,32,38,35,46,42,42,18,12,6,7,4,5,1,2,1,2,0,1,2,0],
+              median:1.008, q1:0.889, q3:1.111, n:366},
+  nulls: [
+    {name:"spelling2pronounce", subtitle:"fitted null, r = 0.972",
+     observed:1.388, sim:1.285, lo:1.275, hi:1.300},
+    {name:"Glasgow FAM", subtitle:"synthetic Fechnerian null",
+     observed:1.474, sim:1.087, lo:1.077, hi:1.102}
+  ]
+};
+
+const NS = "http://www.w3.org/2000/svg";
+const el = (t, a = {}) => { const n = document.createElementNS(NS, t);
+  for (const k in a) n.setAttribute(k, a[k]); return n; };
+const fmt = (v, d = 3) => v.toFixed(d);
+const grp = (n) => n.toLocaleString("en-US");
+
+/* ---- shared tooltip ---- */
+const tip = document.getElementById("tip");
+function bindTip(node, text){
+  node.classList.add("hit");
+  node.setAttribute("tabindex","0");
+  const show = (e) => { tip.textContent = text; tip.style.opacity = 1;
+    const x = (e.clientX ?? node.getBoundingClientRect().left + 10);
+    const y = (e.clientY ?? node.getBoundingClientRect().top);
+    tip.style.left = Math.min(x + 14, window.innerWidth - 280) + "px";
+    tip.style.top  = Math.max(y - 12, 8) + "px"; };
+  const hide = () => { tip.style.opacity = 0; };
+  node.addEventListener("mousemove", show);
+  node.addEventListener("mouseenter", show);
+  node.addEventListener("mouseleave", hide);
+  node.addEventListener("focus", show);
+  node.addEventListener("blur", hide);
+}
+
+/* ================= chart 1: r dot plot ================= */
+(function(){
+  const rows = D.batteries;
+  const W = 900, rowH = 46, padT = 34, padB = 40, padL = 232, padR = 74;
+  const H = padT + rows.length * rowH + padB;
+  const lo = 0.92, hi = 1.58;
+  const X = (v) => padL + (Math.log(v) - Math.log(lo)) / (Math.log(hi) - Math.log(lo)) * (W - padL - padR);
+  const svg = el("svg", {viewBox:`0 0 ${W} ${H}`, width:W, role:"img",
+    "aria-label":"Estimated geometric width ratio r for five batteries"});
+
+  [0.95,1.0,1.1,1.2,1.3,1.4,1.5].forEach(t => {
+    const isOne = t === 1;
+    svg.appendChild(el("line", {x1:X(t), x2:X(t), y1:padT - 10, y2:H - padB + 4,
+      stroke: isOne ? "var(--ink-2)" : "var(--rule-soft)",
+      "stroke-width": isOne ? 1.5 : 1, "stroke-dasharray": isOne ? "5 4" : ""}));
+    const lab = el("text", {x:X(t), y:H - padB + 20, "text-anchor":"middle", "font-size":11.5});
+    lab.textContent = t.toFixed(t === 1 ? 1 : (t < 1 ? 2 : 1)); svg.appendChild(lab);
+  });
+  const one = el("text", {x:X(1), y:padT - 18, "text-anchor":"middle", "font-size":11,
+    fill:"var(--ink-2)"});
+  one.textContent = "no widening"; svg.appendChild(one);
+
+  rows.forEach((b, i) => {
+    const y = padT + i * rowH + rowH / 2;
+    if (b.control) svg.appendChild(el("rect", {x:6, y:y - rowH/2 + 3, width:W - 12,
+      height:rowH - 6, fill:"var(--observed-soft)"}));
+    const nm = el("text", {x:padL - 16, y:y - 3, "text-anchor":"end", "font-size":12.5,
+      fill:"var(--ink)", "font-weight":500});
+    nm.textContent = b.name; svg.appendChild(nm);
+    const sb = el("text", {x:padL - 16, y:y + 12, "text-anchor":"end", "font-size":10.5,
+      fill:"var(--faint)"});
+    sb.textContent = b.sub; svg.appendChild(sb);
+
+    svg.appendChild(el("line", {x1:X(1), x2:X(b.r), y1:y, y2:y,
+      stroke:"var(--observed)", "stroke-width":2, opacity:.35}));
+    if (b.pub) {
+      const t = el("path", {d:`M ${X(b.pub)} ${y-9} L ${X(b.pub)} ${y+9}`,
+        stroke:"var(--ok)", "stroke-width":2});
+      svg.appendChild(t);
+      const pl = el("text", {x:X(b.pub), y:y + 22, "text-anchor":"middle", "font-size":10,
+        fill:"var(--ok)"});
+      pl.textContent = "Chituc 1.409"; svg.appendChild(pl);
+    }
+    const dot = el("circle", {cx:X(b.r), cy:y, r:7, fill:"var(--observed)",
+      stroke:"var(--surface)", "stroke-width":2});
+    bindTip(dot, `${b.name}\nr = ${fmt(b.r)}\nn = ${grp(b.n)} · K = ${b.K}\nΔAIC equi − geom = ${grp(b.dAIC)}`);
+    svg.appendChild(dot);
+    const v = el("text", {x:X(b.r) + 14, y:y + 4, "font-size":13, "font-weight":600,
+      fill:"var(--ink)"});
+    v.textContent = fmt(b.r); svg.appendChild(v);
+  });
+  svg.appendChild(el("line", {x1:padL, x2:W - padR, y1:H - padB + 4, y2:H - padB + 4,
+    class:"axis-line"}));
+  document.getElementById("chart-r").appendChild(svg);
+})();
+
+/* ================= table ================= */
+(function(){
+  const tb = document.getElementById("tbl-body");
+  D.batteries.forEach(b => {
+    const tr = document.createElement("tr");
+    if (b.control) tr.className = "control";
+    tr.innerHTML =
+      `<td><span class="rowname">${b.name}</span><span class="rowsub">${b.sub}</span></td>` +
+      `<td class="num">${grp(b.n)}</td><td class="num">${b.K}</td>` +
+      `<td class="r" style="color:${b.r < 1.02 ? "var(--muted)" : "var(--observed)"}">${fmt(b.r)}</td>` +
+      `<td class="num">${grp(b.dAIC)}</td><td class="num">${b.se.toFixed(4)}</td>` +
+      `<td class="num">${b.lin.toFixed(4)}</td>` +
+      `<td><span class="chip ${b.chip[0]}">${b.chip[1]}</span></td>`;
+    tb.appendChild(tr);
+  });
+})();
+
+/* ================= chart 2: widths small multiples ================= */
+(function(){
+  const rows = D.batteries;
+  const pw = 178, ph = 168, gap = 6, padL = 40, padT = 30, padB = 44;
+  const W = rows.length * (pw + gap), H = ph + padT + padB;
+  const svg = el("svg", {viewBox:`0 0 ${W} ${H}`, width:W, role:"img",
+    "aria-label":"Category widths per battery on a log axis"});
+  const all = rows.flatMap(b => b.widths);
+  const lo = Math.min(...all) * 0.82, hi = Math.max(...all) * 1.18;
+  const Y = (v) => padT + ph - (Math.log(v) - Math.log(lo)) / (Math.log(hi) - Math.log(lo)) * ph;
+
+  rows.forEach((b, i) => {
+    const x0 = i * (pw + gap) + padL, iw = pw - padL - 12;
+    const g = el("g"); svg.appendChild(g);
+    [1,2,3,5].forEach(t => {
+      if (t < lo || t > hi) return;
+      g.appendChild(el("line", {x1:x0 - 6, x2:x0 + iw + 6, y1:Y(t), y2:Y(t), class:"grid-line"}));
+      if (i === 0) { const l = el("text", {x:x0 - 12, y:Y(t) + 3.5, "text-anchor":"end",
+        "font-size":10}); l.textContent = t; g.appendChild(l); }
+    });
+    const title = el("text", {x:x0 - 6, y:16, "font-size":10.5, fill:"var(--ink)",
+      "font-weight":500});
+    title.textContent = b.key === "spell_agg" ? "spelling, item mean"
+      : b.key === "spell_ind" ? "spelling, individual"
+      : b.key === "glasgow" ? "Glasgow (control)"
+      : b.key === "kalimah" ? "kalimah AoA" : "Forthmann";
+    g.appendChild(title);
+
+    const n = b.widths.length;
+    const px = (j) => x0 + (n === 1 ? iw/2 : j / (n - 1) * iw);
+    // fitted geometric reference, centred on the observed widths
+    const gm = Math.exp(b.widths.reduce((s,v) => s + Math.log(v), 0) / n);
+    const mid = (n - 1) / 2;
+    const ref = b.widths.map((_, j) => gm * Math.pow(b.r, j - mid));
+    g.appendChild(el("path", {d: ref.map((v,j) => `${j?"L":"M"} ${px(j)} ${Y(v)}`).join(" "),
+      fill:"none", stroke:"var(--null)", "stroke-width":2, "stroke-dasharray":"5 4"}));
+    g.appendChild(el("path", {d: b.widths.map((v,j) => `${j?"L":"M"} ${px(j)} ${Y(v)}`).join(" "),
+      fill:"none", stroke:"var(--observed)", "stroke-width":2}));
+    b.widths.forEach((v, j) => {
+      const c = el("circle", {cx:px(j), cy:Y(v), r:4.5, fill:"var(--surface)",
+        stroke:"var(--observed)", "stroke-width":2});
+      bindTip(c, `${b.name}\ncategory width ${j+1} of ${n}\n${fmt(v,2)} log-frequency units`);
+      g.appendChild(c);
+    });
+    const rl = el("text", {x:x0 - 6, y:padT + ph + 18, "font-size":10.5,
+      fill: b.r < 1.02 ? "var(--muted)" : "var(--observed)", "font-weight":600});
+    rl.textContent = "r = " + fmt(b.r); g.appendChild(rl);
+    const dir = el("text", {x:x0 - 6, y:padT + ph + 33, "font-size":9.5, fill:"var(--faint)"});
+    dir.textContent = "low freq → high freq"; g.appendChild(dir);
+  });
+  document.getElementById("chart-widths").appendChild(svg);
+})();
+
+/* ================= chart 3: per-rater histogram ================= */
+(function(){
+  const h = D.raterHist;
+  const W = 900, H = 250, padL = 46, padR = 24, padT = 30, padB = 42;
+  const lo = h.edges[0], hi = h.edges[h.edges.length - 1];
+  const X = (v) => padL + (v - lo) / (hi - lo) * (W - padL - padR);
+  const maxC = Math.max(...h.counts);
+  const Y = (c) => padT + (H - padT - padB) * (1 - c / maxC);
+  const svg = el("svg", {viewBox:`0 0 ${W} ${H}`, width:W, role:"img",
+    "aria-label":"Histogram of per-rater r, 366 raters"});
+
+  [0,10,20,30,40].forEach(c => {
+    svg.appendChild(el("line", {x1:padL, x2:W - padR, y1:Y(c), y2:Y(c), class:"grid-line"}));
+    const l = el("text", {x:padL - 10, y:Y(c) + 3.5, "text-anchor":"end", "font-size":10.5});
+    l.textContent = c; svg.appendChild(l);
+  });
+  // IQR band
+  svg.appendChild(el("rect", {x:X(h.q1), y:padT - 8, width:X(h.q3) - X(h.q1),
+    height:H - padT - padB + 8, fill:"var(--observed-soft)"}));
+  h.counts.forEach((c, i) => {
+    if (!c) return;
+    const x = X(h.edges[i]), w = X(h.edges[i+1]) - x - 2;
+    const bar = el("rect", {x:x + 1, y:Y(c), width:Math.max(w,1), height:H - padB - Y(c),
+      fill:"var(--observed)", rx:2, opacity:.85});
+    bindTip(bar, `r ${h.edges[i].toFixed(2)}–${h.edges[i+1].toFixed(2)}\n${c} rater${c>1?"s":""}`);
+    svg.appendChild(bar);
+  });
+  svg.appendChild(el("line", {x1:X(1), x2:X(1), y1:padT - 14, y2:H - padB,
+    stroke:"var(--ink-2)", "stroke-width":1.5, "stroke-dasharray":"5 4"}));
+  const ol = el("text", {x:X(1), y:padT - 20, "text-anchor":"middle", "font-size":11,
+    fill:"var(--ink-2)"}); ol.textContent = "r = 1"; svg.appendChild(ol);
+  svg.appendChild(el("line", {x1:X(h.median), x2:X(h.median), y1:padT - 2, y2:H - padB,
+    stroke:"var(--null)", "stroke-width":2.5}));
+  const ml = el("text", {x:X(h.median) + 8, y:padT + 10, "font-size":11.5,
+    fill:"var(--null)", "font-weight":600});
+  ml.textContent = "median 1.008"; svg.appendChild(ml);
+  const il = el("text", {x:X(h.q3) + 8, y:padT + 26, "font-size":10.5, fill:"var(--muted)"});
+  il.textContent = "IQR 0.889 – 1.111"; svg.appendChild(il);
+
+  [0.6,0.8,1.0,1.2,1.4,1.6,1.8].forEach(t => {
+    const l = el("text", {x:X(t), y:H - padB + 20, "text-anchor":"middle", "font-size":11});
+    l.textContent = t.toFixed(1); svg.appendChild(l);
+  });
+  svg.appendChild(el("line", {x1:padL, x2:W - padR, y1:H - padB, y2:H - padB, class:"axis-line"}));
+  const ax = el("text", {x:(padL + W - padR)/2, y:H - 6, "text-anchor":"middle", "font-size":10.5,
+    fill:"var(--faint)"});
+  ax.textContent = "geometric width ratio r, fitted within one rater"; svg.appendChild(ax);
+  const ay = el("text", {x:padL - 10, y:padT - 12, "text-anchor":"end", "font-size":10.5,
+    fill:"var(--faint)"});
+  ay.textContent = "raters"; svg.appendChild(ay);
+  document.getElementById("chart-rater").appendChild(svg);
+})();
+
+/* ================= chart 4: observed vs null ================= */
+(function(){
+  const rows = D.nulls;
+  const W = 900, rowH = 74, padT = 26, padB = 42, padL = 224, padR = 90;
+  const H = padT + rows.length * rowH + padB;
+  const lo = 0.95, hi = 1.55;
+  const X = (v) => padL + (v - lo) / (hi - lo) * (W - padL - padR);
+  const svg = el("svg", {viewBox:`0 0 ${W} ${H}`, width:W, role:"img",
+    "aria-label":"Observed r versus null-model r"});
+  [1.0,1.1,1.2,1.3,1.4,1.5].forEach(t => {
+    svg.appendChild(el("line", {x1:X(t), x2:X(t), y1:padT - 6, y2:H - padB,
+      stroke: t === 1 ? "var(--ink-2)" : "var(--rule-soft)",
+      "stroke-width": t === 1 ? 1.5 : 1, "stroke-dasharray": t === 1 ? "5 4" : ""}));
+    const l = el("text", {x:X(t), y:H - padB + 20, "text-anchor":"middle", "font-size":11});
+    l.textContent = t.toFixed(1); svg.appendChild(l);
+  });
+  rows.forEach((b, i) => {
+    const y = padT + i * rowH + rowH / 2;
+    const nm = el("text", {x:padL - 18, y:y - 3, "text-anchor":"end", "font-size":13,
+      fill:"var(--ink)", "font-weight":600});
+    nm.textContent = b.name; svg.appendChild(nm);
+    const sb = el("text", {x:padL - 18, y:y + 13, "text-anchor":"end", "font-size":10.5,
+      fill:"var(--faint)"});
+    sb.textContent = b.subtitle; svg.appendChild(sb);
+
+    svg.appendChild(el("line", {x1:X(b.sim), x2:X(b.observed), y1:y, y2:y,
+      stroke:"var(--rule)", "stroke-width":3}));
+    svg.appendChild(el("rect", {x:X(b.lo), y:y - 6, width:Math.max(X(b.hi) - X(b.lo), 2),
+      height:12, fill:"var(--null)", opacity:.22}));
+    const s = el("circle", {cx:X(b.sim), cy:y, r:7, fill:"var(--null)",
+      stroke:"var(--surface)", "stroke-width":2});
+    bindTip(s, `${b.name}\nnull model, averaged and rounded\nr = ${fmt(b.sim)}  (range ${fmt(b.lo)}–${fmt(b.hi)})`);
+    svg.appendChild(s);
+    const o = el("circle", {cx:X(b.observed), cy:y, r:7, fill:"var(--observed)",
+      stroke:"var(--surface)", "stroke-width":2});
+    bindTip(o, `${b.name}\nobserved\nr = ${fmt(b.observed)}`);
+    svg.appendChild(o);
+    const sv = el("text", {x:X(b.sim), y:y - 15, "text-anchor":"middle", "font-size":11.5,
+      fill:"var(--null)", "font-weight":600});
+    sv.textContent = fmt(b.sim); svg.appendChild(sv);
+    const ov = el("text", {x:X(b.observed) + 14, y:y + 4, "font-size":13,
+      fill:"var(--ink)", "font-weight":600});
+    ov.textContent = fmt(b.observed); svg.appendChild(ov);
+    const gapl = el("text", {x:(X(b.sim) + X(b.observed))/2, y:y + 24, "text-anchor":"middle",
+      "font-size":10.5, fill:"var(--faint)"});
+    gapl.textContent = b.observed - b.sim > 0.2 ? "survives the null" : "mostly accounted for";
+    svg.appendChild(gapl);
+  });
+  svg.appendChild(el("line", {x1:padL, x2:W - padR, y1:H - padB, y2:H - padB, class:"axis-line"}));
+  document.getElementById("chart-null").appendChild(svg);
+})();
+</script>

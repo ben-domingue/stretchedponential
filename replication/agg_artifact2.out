@@ -1,0 +1,11 @@
+individual-level r = 0.9715;  observed SD of per-word mean ease = 0.683
+OBSERVED aggregate r = 1.388  counts [    0   177  1557  7691 12147  1219]  kept [2, 3, 4, 5, 6]
+calibrated word-effect sigma = 0.767 -> simulated SD 0.684
+  SIMULATED aggregate r = 1.278  counts [    0    67  1626  8143 11346  1609]  kept [3, 4, 5, 6]
+  SIMULATED aggregate r = 1.283  counts [    0    92  1664  8099 11288  1648]  kept [3, 4, 5, 6]
+  SIMULATED aggregate r = 1.278  counts [    0    81  1645  8139 11297  1629]  kept [3, 4, 5, 6]
+  SIMULATED aggregate r = 1.300  counts [    0    88  1600  8139 11447  1517]  kept [3, 4, 5, 6]
+  SIMULATED aggregate r = 1.294  counts [    0    73  1679  8097 11325  1617]  kept [3, 4, 5, 6]
+  SIMULATED aggregate r = 1.295  counts [    0    83  1630  8127 11392  1559]  kept [3, 4, 5, 6]
+
+Generating model r = 0.972 (flat).  Average-then-round yields r = 1.288 [1.278, 1.300].  Observed = 1.388.

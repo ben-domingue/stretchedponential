@@ -1,0 +1,43 @@
+itemcov_field,n_tables,tables
+itemcov_difficulty,11,dscore_asq_weber_2019 | dscore_barrera_weber_2019 | dscore_bayley_weber_2019 | dscore_denver_weber_2019 | dscore_dutch_weber_2019 | dscore_griffiths_weber_2019 | dscore_macarthur_weber_2019 | dscore_mds_weber_2019 | dscore_pegboard_weber_2019 | dscore_sbi_weber_2019 | dscore_vineland_weber_2019
+itemcov_condition,6,det_naismith_2023 | enkavi_2019_ant_flanker | enkavi_2019_dpx_axcpt | enkavi_2019_gonogo | enkavi_2019_simon | enkavi_2019_stroop
+itemcov_pretest,4,liu_2021_vrexp_breq | liu_2021_vrexp_brums | liu_2021_vrexp_depression | liu_2021_vrexp_experience
+itemcov_cong,2,cogcontrol_gyurkovics_2019_flanker | cogcontrol_gyurkovics_2019_simon
+itemcov_dimension,2,dasilva_2019_hexaco24 | jiang_2021_resilience
+itemcov_angle,1,mentalrotation_wolf_2024
+itemcov_aoa,1,previc_bohn2023
+itemcov_aoa_german_comb,1,vocab_assessment_3_to_8_year_old_children
+itemcov_cbsheet,1,mentalrotation_wolf_2024
+itemcov_conflict,1,enkavi_2019_navon
+itemcov_cue,1,enkavi_2019_ant_flanker
+itemcov_delay,1,enkavi_2019_stopsignal
+itemcov_english_trans,1,previc_bohn2023
+itemcov_expected_answer,1,carver_2017_puggs_pilot1_traits
+itemcov_format,1,bfi2_zhang_2025
+itemcov_frequency,1,Forthmann-2024-creative_quality
+itemcov_german,1,vocab_assessment_3_to_8_year_old_children
+itemcov_group,1,vocab_assessment_3_to_8_year_old_children
+itemcov_ia_dwell_time,1,zhang-eye-2022
+itemcov_ia_dwell_time_pct,1,zhang-eye-2022
+itemcov_ia_first_run_dwell_time,1,zhang-eye-2022
+itemcov_idea_type,1,Forthmann-2024-creative_quality
+itemcov_keyed_true,1,meloni_2015_child_disab_knowledge
+itemcov_length_characters,1,det_naismith_2023
+itemcov_level,1,enkavi_2019_navon
+itemcov_nogo,1,cogcontrol_gyurkovics_2019_sart
+itemcov_order,1,vocab_assessment_3_to_8_year_old_children
+itemcov_response_type,1,mclaughlin_samuel_2025_auditory_session_2
+itemcov_reverse_scored,1,dasilva_2019_hexaco24
+itemcov_shape,1,mentalrotation_wolf_2024
+itemcov_source,1,vocab_assessment_3_to_8_year_old_children
+itemcov_switch,1,enkavi_2019_taskswitch
+itemcov_talker,1,mclaughlin_samuel_2025_auditory_session_2
+itemcov_task,1,enkavi_2019_taskswitch
+itemcov_toggle,1,zhang-eye-2022
+itemcov_toggle_rate,1,zhang-eye-2022
+itemcov_trial_dwell_time,1,zhang-eye-2022
+itemcov_trial_type,1,enkavi_2019_stopsignal
+itemcov_type,1,megart_tonkovic_2021
+itemcov_valence,1,kraft_todd_2017_panas
+itemcov_weight,1,csft_ye_2025
+itemcov_word_type,1,previc_bohn2023

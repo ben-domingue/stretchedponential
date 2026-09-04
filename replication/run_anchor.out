@@ -1,0 +1,20 @@
+--- CONTROL Glasgow FAM x Zipf  (S ascends with frequency)   n=5542 K=6
+    log magnitude  AIC free=     12660.1  geom=     12861.1  equi=     13201.3   r=1.363   widths(rel)=[1.00, 0.75, 0.78, 1.46]
+    rank / CDF     AIC free=     12653.4  geom=     12846.3  equi=     13169.2   r=1.350   widths(rel)=[1.00, 0.76, 0.78, 1.44]
+    anchor verdict: dAIC(rank - log) on free model = -6.7 (positive => log magnitude wins, as Vlad reports)
+--- spelling2pronounce item-mean EASE(7-difficulty) x Zipf  (S ascends with frequency)   n=22790 K=5
+    log magnitude  AIC free=     45942.8  geom=     46210.5  equi=     47242.8   r=1.454   widths(rel)=[1.00, 0.88, 1.47]
+    rank / CDF     AIC free=     45977.4  geom=     46228.6  equi=     47203.7   r=1.436   widths(rel)=[1.00, 0.88, 1.45]
+    anchor verdict: dAIC(rank - log) on free model = +34.6 (positive => log magnitude wins, as Vlad reports)
+--- spelling2pronounce INDIVIDUAL ease x Zipf  (S ascends with frequency)   n=604265 K=6
+    log magnitude  AIC free=   1897588.0  geom=   1898491.6  equi=   1898806.4   r=0.972   widths(rel)=[1.00, 0.83, 0.83, 0.85]
+    rank / CDF     AIC free=   1898439.3  geom=   1899339.6  equi=   1899662.5   r=0.971   widths(rel)=[1.00, 0.83, 0.82, 0.85]
+    anchor verdict: dAIC(rank - log) on free model = +851.4 (positive => log magnitude wins, as Vlad reports)
+--- kalimah EARLY-acquired (8-aoa) x log freq  (S ascends with frequency)   n=65051 K=7
+    log magnitude  AIC free=    234518.5  geom=    235095.3  equi=    238001.7   r=1.209   widths(rel)=[1.00, 0.90, 1.23, 1.47, 2.15]
+    rank / CDF     AIC free=    234539.6  geom=    235116.3  equi=    238033.6   r=1.209   widths(rel)=[1.00, 0.90, 1.23, 1.47, 2.15]
+    anchor verdict: dAIC(rank - log) on free model = +21.1 (positive => log magnitude wins, as Vlad reports)
+--- Forthmann UNoriginality (6-quality) x log idea freq  (S ascends with frequency)   n=14028 K=5
+    log magnitude  AIC free=     38125.7  geom=     38147.4  equi=     38336.5   r=1.189   widths(rel)=[1.00, 1.05, 1.34]
+    rank / CDF     AIC free=     38165.8  geom=     38189.5  equi=     38385.9   r=1.194   widths(rel)=[1.00, 1.05, 1.35]
+    anchor verdict: dAIC(rank - log) on free model = +40.1 (positive => log magnitude wins, as Vlad reports)

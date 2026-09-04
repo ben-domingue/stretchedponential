@@ -1,0 +1,44 @@
+
+===== fractals_rating  itemtext: FALSE 
+  cols: id, item, rater, resp | nrow: 71680 n_items: 7 n_id: 400 
+  resp: 2,5,6,1,3,4,7 
+  items: abstractness ; complexity ; familiarity ; favourableness ; liveliness ; memorability ; verbalizability 
+  ids: Fractal_001 ; Fractal_002 ; Fractal_005 ; Fractal_006 ; Fractal_013 
+
+===== artistic_preferences  itemtext: TRUE 
+  cols: id, item, resp, rt | nrow: 1040200 n_items: 56 n_id: 18575 
+  resp: 1,4,2,3,5,0,6,7,NA 
+  items: 41 ; 42 ; 43 ; 44 ; 45 ; 46 ; 47 ; 48 ; 49 ; 50 
+  ids: 17698 ; 12411 ; 14692 ; 4357 ; 6290 
+
+===== zhang_2024_attractiveness  itemtext: FALSE 
+  cols: id, item, resp, cov_gender, cov_age, cov_income, cov_total_spend | nrow: 1300 n_items: 4 n_id: 325 
+  resp: 5,3,4,2,1 
+  items: ATR3 ; ATR2 ; ATR4 ; ATR1 
+  ids: 2 ; 4 ; 6 ; 8 ; 9 
+
+===== american_multiracial_face  itemtext: TRUE 
+  cols: id, item, resp | nrow: 117880 n_items: 2252 n_id: 1145 
+  resp: 5,4,6,1,3,2,7 
+  items: 1 ; 2 ; 4 ; 5 ; 6 ; 7 ; 8 ; 9 ; 10 ; 11 
+  ids: 135 ; 732 ; 330 ; 36 ; 383 
+
+===== amatus_cipora_2024_arithmetic  itemtext: TRUE 
+  cols: id, item, resp, cov_age, cov_arith_perf_correct_order, cov_breaks, cov_device, cov_ease_teaching_language, cov_ease_teaching_mathematics, cov_ease_teaching_science, cov_honesty, cov_liking_humanities, cov_liking_math, cov_liking_science, cov_main_focus_humanities, cov_main_focus_literacy, cov_main_focus_mathematics, cov_main_focus_not_applicable, cov_main_focus_science, cov_math_grade, cov_math_inf_program_choice, cov_math_load, cov_native_speaker, cov_noise, cov_number_main_foci, cov_persistence_humanities, cov_persistence_math, cov_persistence_science, cov_preference_teaching_language, cov_preference_teaching_mathematics, cov_preference_teaching_science, cov_sample, cov_sex, cov_teacher, cov_teacher_duration, cov_teacher_experience, cov_teacher_stage, cov_total_time_minutes | nrow: 16492 n_items: 40 n_id: 1102 
+  resp: 1,0 
+  items: arith_perf2 ; arith_perf6 ; arith_perf3 ; arith_perf4 ; arith_perf5 ; arith_perf1 ; arith_perf9 ; arith_perf24 ; arith_perf14 ; arith_perf15 
+  ids: 14 ; 59 ; 63 ; 81 ; 88 
+
+===== himmelstein-number_series-2025  itemtext: TRUE 
+  cols: id, item, resp, rt, wave, cov_session_id | nrow: 9099 n_items: 9 n_id: 1189 
+  resp: 0,1 
+  items: NS_1 ; NS_8 ; NS_6 ; NS_9 ; NS_7 ; NS_3 ; NS_4 ; NS_2 ; NS_5 
+  ids: 03spmysv917pRTSkTcj6 ; 0800TgdtDlffSfpuNw07 ; 08YMNb5ZqlRtva1JyiNb ; 0BfdNKn6rbHBPfFmtL64 ; 0FX5rBebJhUn0z8tQid9 
+
+===== roar_lexical  itemtext: FALSE 
+  cols: realpseudo, resp, rt, item, id | nrow: 61500 n_items: 500 n_id: 123 
+  resp: 1,0 
+  items: ag ; am ; an ; ap ; ar ; as ; at ; be ; bi ; da 
+  ids: 245 ; 1934 ; 2188 ; 67 ; 87 
+
+===== spalex_aguasvivas_2020  itemtext: FALSE 
