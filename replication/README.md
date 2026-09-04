@@ -64,6 +64,27 @@ Per-rater (366 raters, ≥200 words each): median r = 1.008, IQR [0.889, 1.111],
 Seed 42 throughout. Threshold likelihood is evaluated on x binned into 600 equal-count cells;
 on the simulation check this moves recovered r in the fourth decimal.
 
+## Traps worth not rediscovering
+
+- **Trim on the administered scale, not after reversal.** The sparse-cell rule has to be
+  applied to the rating as it was actually collected. Applying it after the ease/earliness
+  reversal dropped the 1,096 easiest words — the high-frequency end where the widening lives —
+  and flipped the conclusion for a while.
+- **`r` is directional.** Reversing the rating turns r into 1/r, so every battery has to state
+  its orientation. Everything here runs the rating ascending with frequency.
+- **`r` moves with the trim rule.** The Glasgow control is 1.474 under the 0.5% rule and 1.363
+  keeping all categories. Report the rule with the number.
+- **Nelder-Mead on 600k rows is unusable.** The ordinal likelihood is evaluated on 600
+  equal-count bins of x; on the simulation check that moves recovered r in the 4th decimal.
+- **The Arabic norms code 0 as a distinct response** for both AoA and concreteness, with a mean
+  frequency far off the trend — it reads as a missing-data code and is dropped. Keeping it moves
+  that battery's r substantially.
+- Session notes for this work live in **this** project's memory
+  (`~/.claude/projects/-home-ben-Dropbox-projects-vlad-stretched/memory/`), moved there
+  2026-09-04. Memory is keyed to the directory a session starts in, so start Claude from
+  `projects/vlad_stretched` to have them load — a session started from `projects/irw` will
+  not see them.
+
 ## Next
 
 The clean individual-level test of the *exact* Glasgow construct is a familiarity rating with
